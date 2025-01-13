@@ -181,10 +181,6 @@
 
                 </article>
 
-
-
-
-
                 <div class="bg-white mt-2 pt-2 rounded-lg">
                     <div class="flex justify-evenly items-center ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pb-2 size-8">
@@ -246,6 +242,70 @@
                     </div>
                 </div>
 
+                <div class="overflow-x-auto mt-2 rounded-lg">
+                    <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                        <tbody class="divide-y-2 divide-gray-200">
+                            <tr class="py-4">
+                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
+                                <td class="whitespace-nowrap px-4 py-2">
+                                    <a
+                                        href="#"
+                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="py-4">
+                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
+                                <td class="whitespace-nowrap px-4 py-2">
+                                    <a
+                                        href="#"
+                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="py-4">
+                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
+                                <td class="whitespace-nowrap px-4 py-2">
+                                    <a
+                                        href="#"
+                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="py-4">
+                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
+                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
+                                <td class="whitespace-nowrap px-4 py-2">
+                                    <a
+                                        href="#"
+                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>
