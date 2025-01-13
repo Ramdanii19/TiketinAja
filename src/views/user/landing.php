@@ -178,7 +178,7 @@
 
                             <a
                                 class="inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring "
-                                href=" #">
+                                href="penerbanganTersedia.php">
                                 Cari Sekarang
                             </a>
                         </div>
