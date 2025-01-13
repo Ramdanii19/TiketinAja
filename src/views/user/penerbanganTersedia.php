@@ -57,9 +57,9 @@
     </header>
 
     <div class="container min-w-full flex items-center justify-center">
-        <div class=" bg-indigo-500 p-8 md:p-12 lg:px-96  lg:py-0">
+        <div class=" bg-indigo-500 p-8 md:p-12 lg:px-96  lg:py-8">
             <div class="text-center ltr:sm:text-left rtl:sm:text-right">
-                <fieldset class="w-1/2 grid grid-cols-2 gap-4 mt-3">
+                <fieldset class="w-1/2 grid grid-cols-2 gap-4">
                     <legend class="sr-only">Booking</legend>
 
                     <div>
@@ -100,7 +100,7 @@
                     </div>
                 </fieldset>
 
-                <article class="flex items-center justify-center flex-col gap-5 rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8 mt-3">
+                <article class="flex items-center justify-center flex-col gap-5 rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-4 mt-3">
                     <div class="flex items-center justify-center sm:gap-8 lg:gap-2">
                         <div class="flex items-center justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
                             <select
@@ -182,6 +182,69 @@
                 </article>
 
 
+
+
+
+                <div class="bg-white mt-2 pt-2 rounded-lg">
+                    <div class="flex justify-evenly items-center ">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pb-2 size-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+
+                        <nav class=" flex items-center justify-center gap-6" aria-label="Tabs">
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+                            <a
+                                href="#"
+                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
+                                Sen, 13 Jan
+                                <span class="text-xs font-normal">Rp 800.000</span>
+                            </a>
+
+
+                        </nav>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pb-2 size-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+
+
+                    </div>
+                </div>
 
 
             </div>
