@@ -253,7 +253,7 @@
                                 <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
                                 <td class="whitespace-nowrap px-4 py-2">
                                     <a
-                                        href="#"
+                                        href="formPemesanan.php"
                                         class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                                         View
                                     </a>
@@ -267,7 +267,7 @@
                                 <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
                                 <td class="whitespace-nowrap px-4 py-2">
                                     <a
-                                        href="#"
+                                        href="formPemesanan.php"
                                         class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                                         View
                                     </a>
@@ -281,7 +281,7 @@
                                 <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
                                 <td class="whitespace-nowrap px-4 py-2">
                                     <a
-                                        href="#"
+                                        href="formPemesanan.php"
                                         class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                                         View
                                     </a>
@@ -295,7 +295,7 @@
                                 <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
                                 <td class="whitespace-nowrap px-4 py-2">
                                     <a
-                                        href="#"
+                                        href="formPemesanan.php"
                                         class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                                         View
                                     </a>
