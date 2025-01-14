@@ -150,7 +150,7 @@
                     Pesanan diproses
                 </p>
                 <h2 class="mt-6 text-3xl font-bold">Terimakasih Atas Pemesanan Anda!</h2>
-                <a href="landing.php"
+                <a href="listPesanan.php"
                     id="close-modal"
                     class="mt-8 inline-block w-full rounded-full bg-indigo-600 py-4 text-sm font-bold text-white shadow-xl">
                     Lihat Pesanan
