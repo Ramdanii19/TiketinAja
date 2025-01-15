@@ -40,28 +40,27 @@
                 </div>
 
                 <div class="overflow-x-auto rounded-lg shadow-lg bg-white lg:col-span-4">
-                    <table class="w-full divide-y divide-gray-200 text-sm">
-                        <thead class="bg-gray-100">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Maskapai</th>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Tanggal</th>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Keberangkatan</th>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Durasi</th>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Kedatangan</th>
-                                <th class="px-4 py-2 text-left font-medium text-gray-900">Harga</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
+                        <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td class="flex items-center gap-3 px-4 py-2 font-medium text-gray-900">
-                                    <img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Logo Garuda Indonesia">
-                                    Garuda Indonesia
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <img class="w-16" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Garuda">
                                 </td>
-                                <td class="px-4 py-2 text-gray-700">Sel, 14 Jan</td>
-                                <td class="px-4 py-2 text-gray-700">04:25</td>
-                                <td class="px-4 py-2 text-gray-700">7 Jam</td>
-                                <td class="px-4 py-2 text-gray-700">11:25</td>
-                                <td class="px-4 py-2 text-gray-700">Rp 2.023.850</td>
+                                <td class="px-6 py-4 whitespace-nowrap">04:25</td>
+                                <td class="px-6 py-4 whitespace-nowrap">7 Jam</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Rp 2.023.850</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="formPemesanan.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">View</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
