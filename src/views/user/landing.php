@@ -36,17 +36,18 @@
             <div class=" mx-auto max-w-screen-xl px-4">
                 <div class="text-center flex items-center justify-center flex-col">
                     <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">Pesan Tiket Sekarang!</h2>
-                    <fieldset class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                        <label class="flex items-center gap-2 text-white">
-                            <input type="radio" name="flightType" class="text-blue-500 border border-gray-300" checked />
-                            Pulang-Pergi
-                        </label>
-                        <label class="flex items-center gap-2 text-white">
-                            <input type="radio" name="flightType" class="text-blue-500 border border-gray-300" />
-                            Sekali Jalan
-                        </label>
-                    </fieldset>
-                    <article class=" mt-6 rounded-lg bg-white p-6 shadow-lg border border-gray-200">
+                    <fieldset class="mt-4 grid grid-cols-2 sm:flex gap-4">
+                    <label class="flex justify-between sm:justify-start sm:items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
+                        <input type="radio" name="trip-type" value="round-trip" id="round-trip" class="">
+                        <span class="cursor-pointer">Pulang-Pergi</span>
+                    </label>
+                    <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
+                        <input type="radio" name="trip-type" value="one-way" id="one-way" class="">
+                        <span class="cursor-pointer">Sekali Jalan</span>
+                    </label>
+                    
+                </fieldset>
+                    <article class=" mt-4 rounded-lg bg-white p-6 shadow-lg border border-gray-200">
                         <div class="flex flex-wrap flex-grow-0 gap-4 justify-center">
                             <select class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
                                 <option value="">Bandara Asal</option>
@@ -73,7 +74,34 @@
                                 </optgroup>
                             </select>
                             <input type="date" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" />
+                            <input
+                        type="date"
+                        id="return-date"
+                        class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border"
+                        placeholder="Tanggal Pulang">
                             <input type="number" placeholder="Jumlah Penumpang" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" />
+                            <script>
+                const roundTripRadio = document.getElementById('round-trip');
+                const oneWayRadio = document.getElementById('one-way');
+                const returnDateInput = document.getElementById('return-date');
+
+                // Default state
+                returnDateInput.style.display = 'block';
+
+                // Event listeners
+                roundTripRadio.addEventListener('change', () => {
+                    if (roundTripRadio.checked) {
+                        returnDateInput.style.display = 'block';
+                    }
+                });
+
+                oneWayRadio.addEventListener('change', () => {
+                    if (oneWayRadio.checked) {
+                        returnDateInput.style.display = 'none';
+                    }
+                });
+            </script>
+
                         </div>
                         <div class="mt-4 flex justify-center">
                             <a class="rounded bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 border border-indigo-600" href="penerbanganTersedia.php">
