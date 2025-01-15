@@ -6,311 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TiketinAja</title>
     <link href="../../assets/css/output.css" rel="stylesheet">
-
 </head>
 
 <body>
-    <header class="bg-white">
+    <header class="bg-white shadow">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <div class="md:flex md:items-center md:gap-12">
-                    <a class="block text-indigo-600" href="#">
-                        <h1 class="h-8 font-semibold text-xl">TiketinAja</h1>
-                    </a>
+                <!-- Logo -->
+                <a class="block text-indigo-600 text-xl font-semibold" href="landing.php">TiketinAja</a>
+
+                <!-- Navigation -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a class="rounded-md bg-indigo-600 px-4 py-2 text-sm text-white" href="#">Login</a>
+                    <a class="rounded-md border border-indigo-600 px-4 py-2 text-sm text-indigo-600" href="#">Register</a>
                 </div>
 
-
-
-                <div class="flex items-center gap-4">
-                    <div class="sm:flex sm:gap-4">
-                        <a
-                            class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                            href="#">
-                            Login
-                        </a>
-
-                        <div class="hidden sm:flex">
-                            <a
-                                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600"
-                                href="#">
-                                Register
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="block md:hidden">
-                        <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="size-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="p-2 rounded bg-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="container min-w-full flex items-center justify-center">
-        <div class=" bg-indigo-500 p-8 md:p-12 lg:px-96  lg:py-8">
-            <div class="text-center ltr:sm:text-left rtl:sm:text-right">
-                <fieldset class="w-1/2 grid grid-cols-2 gap-4">
-                    <legend class="sr-only">Booking</legend>
-
-                    <div>
-                        <label
-                            for="DeliveryStandard"
-                            class="flex cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-xs font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <div>
-                                <p class="text-gray-700">Pulang-Pergi</p>
-
-                            </div>
-
-                            <input
-                                type="radio"
-                                name="DeliveryOption"
-                                value="DeliveryStandard"
-                                id="DeliveryStandard"
-                                class="size-4 border-gray-300 text-blue-500"
-                                checked />
-                        </label>
-                    </div>
-
-                    <div>
-                        <label
-                            for="DeliveryPriority"
-                            class="flex cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-xs font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <div>
-                                <p class="text-gray-700">Sekali Jalan</p>
-
-                            </div>
-
-                            <input
-                                type="radio"
-                                name="DeliveryOption"
-                                value="DeliveryPriority"
-                                id="DeliveryPriority"
-                                class="size-4 border-gray-300 text-blue-500" />
-                        </label>
-                    </div>
+    <main class="container mx-auto p-4">
+        <!-- Booking Form -->
+        <div class="bg-indigo-500 p-6 md:p-10 lg:p-16 rounded-md shadow-lg">
+            <form class="space-y-4">
+                <!-- Radio buttons for trip type -->
+                <fieldset class="grid grid-cols-2 sm:flex gap-4">
+                    <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
+                        <input type="radio" name="trip-type" value="round-trip" id="round-trip" class="">
+                        <span class="cursor-pointer">Pulang-Pergi</span>
+                    </label>
+                    <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
+                        <input type="radio" name="trip-type" value="one-way" id="one-way" class="">
+                        <span class="cursor-pointer">Sekali Jalan</span>
+                    </label>
                 </fieldset>
 
-                <article class="flex items-center justify-center flex-col gap-5 rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-4 mt-3">
-                    <div class="flex items-center justify-center sm:gap-8 lg:gap-2">
-                        <div class="flex items-center justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <select
-                                name="HeadlineAct"
-                                id="HeadlineAct"
-                                class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
-                                <option value="">Bandara Asal</option>
-                                <optgroup label="Jakarta">
-                                    <option value="AK">SOEKARNO HATTA</option>
-                                    <option value="AK">HALIM PERDANA KUSUMA</option>
-                                </optgroup>
-                                <optgroup label="Bali">
-                                    <option value="AK">I GUSTI NGURAH RAI</option>
-                                </optgroup>
-                                <optgroup label="Yogyakarta">
-                                    <option value="AK">YOGYAKARTA</option>
-                                </optgroup>
-                                <optgroup label="Jawa Barat">
-                                    <option value="AK">KERTAJATI</option>
-                                </optgroup>
-
-                            </select>
-                        </div>
-                        <a
-                            class="inline-block rounded-full border border-indigo-600 bg-indigo-600 p-4 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                            href="#">
-                            <span class="sr-only"> Switch </span>
-
-
-                            <svg
-                                class="size-5 rtl:rotate-180"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M18 10L21 7M21 7L18 4M21 7H7M6 14L3 17M3 17L6 20M3 17H17" />
-                            </svg>
-                        </a>
-                        <div class="flex items-center justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <select
-                                name="HeadlineAct"
-                                id="HeadlineAct"
-                                class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
-                                <option value="">Bandara Tujuan</option>
-                                <optgroup label="Jakarta">
-                                    <option value="AK">SOEKARNO HATTA</option>
-                                    <option value="AK">HALIM PERDANA KUSUMA</option>
-                                </optgroup>
-                                <optgroup label="Bali">
-                                    <option value="AK">I GUSTI NGURAH RAI</option>
-                                </optgroup>
-                                <optgroup label="Yogyakarta">
-                                    <option value="AK">YOGYAKARTA</option>
-                                </optgroup>
-                                <optgroup label="Jawa Barat">
-                                    <option value="AK">KERTAJATI</option>
-                                </optgroup>
-
-                            </select>
-                        </div>
-                        <div class="flex cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <input type="date">
-                        </div>
-                        <div class="flex text-center cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white px-4 py-3 text-base font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-blue-500 has-[:checked]:ring-1 has-[:checked]:ring-blue-500">
-                            <input type="number" placeholder="Jumlah Penumpang">
-                        </div>
-
-                        <a
-                            class="inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring "
-                            href=" #">
-                            Cari Sekarang
-                        </a>
-                    </div>
-
-                </article>
-
-                <div class="bg-white mt-2 pt-2 rounded-lg">
-                    <div class="flex justify-evenly items-center ">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pb-2 size-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-
-                        <nav class=" flex items-center justify-center gap-6" aria-label="Tabs">
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-                            <a
-                                href="#"
-                                class="flex flex-col shrink-0 border-b border-transparent px-1 pb-4 text-base font-medium text-slate-900 hover:border-gray-300 hover:text-gray-700 focus:border-sky-500">
-                                Sen, 13 Jan
-                                <span class="text-xs font-normal">Rp 800.000</span>
-                            </a>
-
-
-                        </nav>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="pb-2 size-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-
-
-                    </div>
+                <!-- Input fields -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <select class="p-4 rounded-lg w-full border-gray-300">
+                        <option>Bandara Asal</option>
+                        <option>SOEKARNO HATTA</option>
+                        <option>I GUSTI NGURAH RAI</option>
+                    </select>
+                    <select class="p-4 rounded-lg w-full border-gray-300">
+                        <option>Bandara Tujuan</option>
+                        <option>SOEKARNO HATTA</option>
+                        <option>I GUSTI NGURAH RAI</option>
+                    </select>
+                    <input type="date" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
+                    <!-- Pulang date -->
+                    <input
+                        type="date"
+                        id="return-date"
+                        class="p-4 rounded-lg w-full border-gray-300 placeholder-gray-400"
+                        placeholder="Tanggal Pulang">
+                    <input type="number" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm text-gray-500 w-full border-gray-300">
                 </div>
 
-                <div class="overflow-x-auto mt-2 rounded-lg">
-                    <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-                        <tbody class="divide-y-2 divide-gray-200">
-                            <tr class="py-4">
-                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
-                                <td class="whitespace-nowrap px-4 py-2">
-                                    <a
-                                        href="formPemesanan.php"
-                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                        View
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr class="py-4">
-                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
-                                <td class="whitespace-nowrap px-4 py-2">
-                                    <a
-                                        href="formPemesanan.php"
-                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                        View
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr class="py-4">
-                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
-                                <td class="whitespace-nowrap px-4 py-2">
-                                    <a
-                                        href="formPemesanan.php"
-                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                        View
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr class="py-4">
-                                <td class="flex items-center justify-center gap-3 whitespace-nowrap px-4 py-2 font-medium text-gray-900"><img class="w-20" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt=""> Garuda Indonesia</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">04:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">7 Jam</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">11:25</td>
-                                <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp 2.023.850</td>
-                                <td class="whitespace-nowrap px-4 py-2">
-                                    <a
-                                        href="formPemesanan.php"
-                                        class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                        View
-                                    </a>
-                                </td>
-                            </tr>
+                <!-- Submit Button -->
+                <button type="submit" class="block w-full rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">
+                    Cari Sekarang
+                </button>
+            </form>
+
+            <script>
+                const roundTripRadio = document.getElementById('round-trip');
+                const oneWayRadio = document.getElementById('one-way');
+                const returnDateInput = document.getElementById('return-date');
+
+                // Default state
+                returnDateInput.style.display = 'block';
+
+                // Event listeners
+                roundTripRadio.addEventListener('change', () => {
+                    if (roundTripRadio.checked) {
+                        returnDateInput.style.display = 'block';
+                    }
+                });
+
+                oneWayRadio.addEventListener('change', () => {
+                    if (oneWayRadio.checked) {
+                        returnDateInput.style.display = 'none';
+                    }
+                });
+            </script>
 
 
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
         </div>
-    </div>
 
+        <!-- Ticket List -->
+        <div class="mt-8 bg-white rounded-md shadow-lg overflow-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <img class="w-16" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Garuda">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">04:25</td>
+                        <td class="px-6 py-4 whitespace-nowrap">7 Jam</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Rp 2.023.850</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <a href="formPemesanan.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>
