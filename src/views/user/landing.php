@@ -31,9 +31,11 @@
     </header>
 
     <main class="mx-auto">
-        <section class="relative w-full bg-cover bg-center bg-no-repeat  py-12"
+        <section class="relative w-full bg-cover bg-center bg-no-repeat py-12"
             style="background-image: url('https://images.unsplash.com/photo-1632099058914-1d1c64915d0b?q=80&w=1971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-            <div class=" mx-auto max-w-screen-xl px-4">
+            <div class="absolute inset-0 bg-black/60"></div>
+
+            <div class="relative mx-auto max-w-screen-xl px-4 ">
                 <div class="text-center flex items-center justify-center flex-col">
                     <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">Pesan Tiket Sekarang!</h2>
                     <fieldset class="mt-4 grid grid-cols-2 sm:flex gap-4">
