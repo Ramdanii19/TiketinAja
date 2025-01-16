@@ -50,13 +50,18 @@
                 </fieldset>
 
                 <!-- Input fields -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                    <select class="p-4 rounded-lg w-full border-gray-300">
+                <div class="grid grid-cols-1 lg:flex lg:items-center gap-4">
+                    <select id="bandaraAsal" class="p-4 rounded-lg w-full border-gray-300">
                         <option>Bandara Asal</option>
                         <option>SOEKARNO HATTA</option>
                         <option>I GUSTI NGURAH RAI</option>
                     </select>
-                    <select class="p-4 rounded-lg w-full border-gray-300">
+                    <button id="swapButton" class="w-15 h-15 hidden lg:block rounded-full border border-indigo-600 bg-indigo-600 p-3 text-white hover:bg-transparent hover:text-indigo-600 ">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10L21 7M21 7L18 4M21 7H7M6 14L3 17M3 17L6 20M3 17H17" />
+                        </svg>
+                    </button>
+                    <select id="bandaraTujuan" class="p-4 rounded-lg w-full border-gray-300">
                         <option>Bandara Tujuan</option>
                         <option>SOEKARNO HATTA</option>
                         <option>I GUSTI NGURAH RAI</option>
@@ -77,27 +82,6 @@
                 </button>
             </form>
 
-            <script>
-                const roundTripRadio = document.getElementById('round-trip');
-                const oneWayRadio = document.getElementById('one-way');
-                const returnDateInput = document.getElementById('return-date');
-
-                // Default state
-                returnDateInput.style.display = 'block';
-
-                // Event listeners
-                roundTripRadio.addEventListener('change', () => {
-                    if (roundTripRadio.checked) {
-                        returnDateInput.style.display = 'block';
-                    }
-                });
-
-                oneWayRadio.addEventListener('change', () => {
-                    if (oneWayRadio.checked) {
-                        returnDateInput.style.display = 'none';
-                    }
-                });
-            </script>
 
 
         </div>
@@ -133,3 +117,43 @@
 </body>
 
 </html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const roundTripRadio = document.getElementById('round-trip');
+        const oneWayRadio = document.getElementById('one-way');
+        const returnDateInput = document.getElementById('return-date');
+        const swapButton = document.getElementById("swapButton");
+
+        // Default state
+        returnDateInput.style.display = 'block';
+
+        // Event listeners
+        roundTripRadio.addEventListener('change', () => {
+            returnDateInput.style.display = 'block';
+        });
+
+        oneWayRadio.addEventListener('change', () => {
+            returnDateInput.style.display = 'none';
+        });
+
+        // Fungsi swap untuk tukar posisi elemen
+        document.getElementById("swapButton").addEventListener("click", function() {
+            event.preventDefault();
+            // Ambil elemen bandaraAsal dan bandaraTujuan
+            const bandaraAsal = document.getElementById("bandaraAsal");
+            const bandaraTujuan = document.getElementById("bandaraTujuan");
+
+            // Cari parent dari masing-masing elemen
+            const parentAsal = bandaraAsal.parentNode;
+            const parentTujuan = bandaraTujuan.parentNode;
+
+            // Simpan placeholder untuk membantu pertukaran
+            const placeholder = document.createElement("div");
+
+            // Tukar posisi elemen
+            parentAsal.replaceChild(placeholder, bandaraAsal);
+            parentTujuan.replaceChild(bandaraAsal, bandaraTujuan);
+            parentAsal.replaceChild(bandaraTujuan, placeholder);
+        });
+    });
+</script>
