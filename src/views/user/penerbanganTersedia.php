@@ -12,22 +12,19 @@
     <header class="bg-white shadow">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <!-- Logo -->
-                <a class="block text-indigo-600 text-xl font-semibold" href="landing.php">TiketinAja</a>
-
-                <!-- Navigation -->
-                <div class="hidden md:flex items-center gap-4">
-                    <a class="rounded-md bg-indigo-600 px-4 py-2 text-sm text-white" href="#">Login</a>
-                    <a class="rounded-md border border-indigo-600 px-4 py-2 text-sm text-indigo-600" href="#">Register</a>
+                <div>
+                    <a href="landing.php" class="text-indigo-600 font-bold text-2xl">
+                        TiketinAja
+                    </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button class="p-2 rounded bg-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                        Login
+                    </a>
+                    <a href="#" class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600">
+                        Register
+                    </a>
                 </div>
             </div>
         </div>

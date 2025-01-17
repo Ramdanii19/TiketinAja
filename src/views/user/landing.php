@@ -12,19 +12,19 @@
     <header class="bg-white shadow">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <a class="block text-indigo-600" href="#">
-                    <h1 class="text-xl font-semibold">TiketinAja</h1>
-                </a>
+                <div>
+                    <a href="landing.php" class="text-indigo-600 font-bold text-2xl">
+                        TiketinAja
+                    </a>
+                </div>
+
                 <div class="flex items-center gap-4">
-                    <div class="hidden sm:flex sm:gap-4">
-                        <a class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 border border-indigo-600" href="#">Login</a>
-                        <a class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600 hover:bg-gray-200 border border-gray-200" href="#">Register</a>
-                    </div>
-                    <button class="block rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-700 border border-gray-200 md:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                    <a href="#" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                        Login
+                    </a>
+                    <a href="#" class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600">
+                        Register
+                    </a>
                 </div>
             </div>
         </div>
