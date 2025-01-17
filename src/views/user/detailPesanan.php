@@ -32,7 +32,7 @@
 
     <section class="relative bg-indigo-600 py-16">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-6">
+            <div class="grid grid-cols-1 gap-3 sm:gap-8 lg:grid-cols-6">
                 <div class="lg:col-span-2 flex flex-col gap-2">
                     <h1 class="text-3xl font-bold text-white">
                         Detail Pesanan

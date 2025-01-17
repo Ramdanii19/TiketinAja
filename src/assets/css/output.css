@@ -1315,6 +1315,14 @@ video {
     grid-column: span 2 / span 2;
   }
 
+  .sm\:-mb-24 {
+    margin-bottom: -6rem;
+  }
+
+  .sm\:-mb-64 {
+    margin-bottom: -16rem;
+  }
+
   .sm\:flex {
     display: flex;
   }
@@ -1345,6 +1353,10 @@ video {
 
   .sm\:gap-4 {
     gap: 1rem;
+  }
+
+  .sm\:gap-8 {
+    gap: 2rem;
   }
 
   .sm\:p-12 {
