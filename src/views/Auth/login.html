@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
-    <script src="https://cdn.tailwindcss.com"></script> 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Fungsi untuk mengubah tampilan antara form login dan register
         function toggleForms(formType) {
@@ -27,7 +28,7 @@
         }
 
         // Memastikan modal muncul hanya ketika halaman login pertama kali dimuat setelah registrasi
-        window.onload = function() {
+        window.onload = function () {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('registered') && urlParams.get('registered') === 'true') {
                 showNotification(); // Show the registration success modal
@@ -35,10 +36,11 @@
         };
     </script>
 </head>
+
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <!-- Modal Notifikasi -->
-    <div id="notification-modal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+    <div id="notification-modal" class="fixed inset-0 items-center justify-center bg-gray-800 bg-opacity-50 hidden">
         <div class="bg-white p-8 rounded-lg shadow-lg w-96 text-center">
             <h3 class="text-lg font-semibold text-green-600">Account has been registered!</h3>
         </div>
@@ -73,7 +75,8 @@
 
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">Don't have an account?</p>
-            <a href="javascript:void(0);" onclick="toggleForms('register')" class="text-sm text-blue-600 hover:underline">Register here</a>
+            <a href="javascript:void(0);" onclick="toggleForms('register')"
+                class="text-sm text-blue-600 hover:underline">Register here</a>
         </div>
     </div>
 
@@ -113,9 +116,11 @@
 
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">Already have an account?</p>
-            <a href="javascript:void(0);" onclick="toggleForms('login')" class="text-sm text-blue-600 hover:underline">Sign in here</a>
+            <a href="javascript:void(0);" onclick="toggleForms('login')"
+                class="text-sm text-blue-600 hover:underline">Sign in here</a>
         </div>
     </div>
 
 </body>
+
 </html>
