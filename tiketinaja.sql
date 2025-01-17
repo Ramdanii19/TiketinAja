@@ -156,9 +156,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`) VALUES
 (1, 'Admin', 'admin@tiketinaja.com', 'hashedpassword123', 'admin'),
-(2, 'rafi', 'john.doe@example.com', 'hashedpassword123', 'user'),
-(3, 'Ramdani', 'jane.smith@example.com', 'hashedpassword123', 'user');
-(4, 'Hafidh', 'jane.smith@example.com', 'hashedpassword123', 'user');
+(2, 'rafi', 'rafi@tiketinaja.com', 'hashedpassword123', 'user'),
+(3, 'Ramdani', 'ramdani@tiketinaja.com', 'hashedpassword123', 'user'),
+(4, 'Hafidh', 'hafidh@tiketinaja.com', 'hashedpassword123', 'user');
 
 --
 -- Indexes for dumped tables
