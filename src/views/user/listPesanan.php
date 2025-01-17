@@ -59,7 +59,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">7 Jam</td>
                                 <td class="px-6 py-4 whitespace-nowrap">Rp 2.023.850</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <a href="formPemesanan.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">View</a>
+                                    <a href="detailPesanan.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">View</a>
                                 </td>
                             </tr>
                         </tbody>
