@@ -10,7 +10,7 @@
 
 <body>
   <div class="flex full">
-    <div class="flex flex-col justify-between border-e border-neutral-100 dark:border-neutral-800 w-1/5">
+    <div class="flex flex-col justify-between border-e border-neutral-100 dark:border-neutral-800 w-1/5 ">
       <div class="px-4 py-4 flex gap-4 items-center justify-center">
         <!-- <div class="mb-2"><img src="../../assets/img/TiketinAja.png" alt="" class="w-10"></div> -->
         <div class="">
@@ -59,7 +59,6 @@
         </ul>
       </div>
     </div>
-    
   </div>
 </body>
 
