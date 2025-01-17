@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../../assets/css/output.css" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script>
         // Fungsi untuk mengubah tampilan antara form login dan register
         function toggleForms(formType) {
