@@ -65,13 +65,13 @@ if (!isset($_POST['submit'])) {
                         </fieldset>
                         <article class=" mt-4 rounded-lg bg-white p-6 shadow-lg border border-gray-200">
                             <div class="flex flex-wrap flex-grow-0 gap-4 justify-center">
-                                <select id="bandaraAsal" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
+                                <select id="bandaraAsal" name="bandaraAsal" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
                                     <option value="">Bandara Asal</option>
 
                                     <?php
                                     $uniqueAsal = [];
                                     foreach ($penerbanganData as $dataPenerbangan) {
-                                        $asal = strtolower(trim($dataPenerbangan['asal']));
+                                        $asal = (trim($dataPenerbangan['asal']));
                                         if (!in_array($asal, $uniqueAsal)) {
                                             $uniqueAsal[] = $asal;
                                     ?>
@@ -89,12 +89,12 @@ if (!isset($_POST['submit'])) {
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10L21 7M21 7L18 4M21 7H7M6 14L3 17M3 17L6 20M3 17H17" />
                                     </svg>
                                 </button>
-                                <select id="bandaraTujuan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
+                                <select id="bandaraTujuan" name="bandaraTujuan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
                                     <option value="">Bandara Tujuan</option>
                                     <?php
                                     $uniqueTujuan = [];
                                     foreach ($penerbanganData as $dataPenerbangan) {
-                                        $tujuan = strtolower(trim($dataPenerbangan['tujuan']));
+                                        $tujuan = (trim($dataPenerbangan['tujuan']));
                                         if (!in_array($tujuan, $uniqueTujuan)) {
                                             $uniqueTujuan[] = $tujuan;
                                     ?>
@@ -113,7 +113,7 @@ if (!isset($_POST['submit'])) {
                             </div>
 
                             <div class="mt-4 flex justify-center">
-                                <button type="submit" class="rounded bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 border border-indigo-600" href="penerbanganTersedia.php">
+                                <button type="submit" name="submit" class="rounded bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-700 border border-indigo-600" href="penerbanganTersedia.php">
                                     Cari Sekarang
                                 </button>
                             </div>
