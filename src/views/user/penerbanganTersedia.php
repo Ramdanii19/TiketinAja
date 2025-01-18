@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
         <link href="../../assets/css/output.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body data-tipe="<?php echo htmlspecialchars($tipe); ?>">
         <header class="bg-white shadow">
             <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
@@ -242,6 +242,15 @@ if (isset($_POST['submit'])) {
 
         // Default state
         kepulangan.style.display = 'block';
+
+        const tipe = document.body.getAttribute('data-tipe');
+
+        // Set the initial state based on the 'tipe' value
+        if (tipe === 'pp') {
+            kepulangan.style.display = 'block'; // Show kepulangan for pulang-pergi
+        } else {
+            kepulangan.style.display = 'none'; // Hide kepulangan for sekali jalan
+        }
 
         // Event listeners
         pp.addEventListener('change', () => {
