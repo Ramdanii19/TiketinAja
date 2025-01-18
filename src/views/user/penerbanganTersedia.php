@@ -178,8 +178,9 @@ if (isset($_POST['submit'])) {
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Keberangkatan</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kedatangan</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                             </tr>
@@ -198,7 +199,21 @@ if (isset($_POST['submit'])) {
                                         <p class="font-medium text-gray-700"><?php echo $dataPenerbangan['maskapai'] ?></p>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])) ?></td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><?php echo gmdate("H:i", strtotime($dataPenerbangan['waktu_kedatangan']) - strtotime($dataPenerbangan['waktu_keberangkatan'])) ?> Jam</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <?php
+                                        $waktuKeberangkatan = strtotime($dataPenerbangan['waktu_keberangkatan']);
+                                        $waktuKedatangan = strtotime($dataPenerbangan['waktu_kedatangan']);
+
+                                        $durasiDetik = $waktuKedatangan - $waktuKeberangkatan; // Durasi dalam detik
+
+                                        $jam = floor($durasiDetik / 3600); // Jam
+                                        $menit = floor(($durasiDetik % 3600) / 60); // Menit
+
+                                        // Format output as 1j 30m in one line
+                                        echo ($jam > 0 ? $jam . 'j ' : '') . ($menit > 0 ? $menit . 'm' : '');
+                                        ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><?php echo date("H:i", strtotime($dataPenerbangan['waktu_kedatangan'])) ?></td>
                                     <td class="px-6 py-4 whitespace-nowrap">Rp <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <a href="formPemesanan.php?id=<?php echo $dataPenerbangan['id'] ?>" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Pesan</a>
