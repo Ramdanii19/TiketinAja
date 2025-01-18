@@ -1,3 +1,39 @@
+<?php
+include "../../config/koneksi.php";
+
+// Menerima data POST
+$bandaraAsal = isset($_POST["bandaraAsal"]) ? $_POST["bandaraAsal"] : '';
+$bandaraTujuan = isset($_POST["bandaraTujuan"]) ? $_POST["bandaraTujuan"] : '';
+$keberangkatan = isset($_POST["keberangkatan"]) ? $_POST["keberangkatan"] : '';
+$kepulangan = isset($_POST["kepulangan"]) ? $_POST["kepulangan"] : '';
+$jumlahPenumpang = isset($_POST["jumlah"]) ? $_POST["jumlah"] : '';
+
+// Query untuk mencari tiket berdasarkan kriteria
+// if ($kepulangan) {
+//     // Cari tiket pulang-pergi
+$queryCariTiket = "
+        SELECT * FROM pesawat 
+        WHERE asal = '$bandaraAsal' 
+        AND tujuan = '$bandaraTujuan' 
+        AND DATE(waktu_keberangkatan) = '$keberangkatan' 
+    ";
+// } else {
+//     // Cari tiket sekali jalan
+//     $queryCariTiket = "
+//         SELECT * FROM pesawat 
+//         WHERE asal = '$bandaraAsal' 
+//         AND tujuan = '$bandaraTujuan' 
+//         AND DATE(waktu_keberangkatan) = '$keberangkatan'
+//     ";
+// }
+
+$resultCariTiket = mysqli_query($conn, $queryCariTiket);
+$penerbanganData = [];
+while ($dataPenerbangan = mysqli_fetch_array($resultCariTiket, MYSQLI_ASSOC)) {
+    $penerbanganData[] = $dataPenerbangan;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,11 +73,11 @@
                 <!-- Radio buttons for trip type -->
                 <fieldset class="grid grid-cols-2 sm:flex gap-4">
                     <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                        <input type="radio" name="trip-type" value="round-trip" id="round-trip" class="">
+                        <input type="radio" name="tipe" value="pp" id="pp" class="">
                         <span class="cursor-pointer">Pulang-Pergi</span>
                     </label>
                     <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                        <input type="radio" name="trip-type" value="one-way" id="one-way" class="">
+                        <input type="radio" name="tipe" value="sekali" id="sekali" class="">
                         <span class="cursor-pointer">Sekali Jalan</span>
                     </label>
                 </fieldset>
@@ -49,7 +85,8 @@
                 <!-- Input fields -->
                 <div class="grid grid-cols-1 lg:flex lg:items-center gap-4">
                     <select id="bandaraAsal" class="p-4 rounded-lg w-full border-gray-300">
-                        <option>Bandara Asal</option>
+                        <option><?php echo $bandaraAsal ?></option>
+                        <option value="">Bandara Asal</option>
                         <option>SOEKARNO HATTA</option>
                         <option>I GUSTI NGURAH RAI</option>
                     </select>
@@ -59,6 +96,7 @@
                         </svg>
                     </button>
                     <select id="bandaraTujuan" class="p-4 rounded-lg w-full border-gray-300">
+                        <option><?php echo $bandaraTujuan ?></option>
                         <option>Bandara Tujuan</option>
                         <option>SOEKARNO HATTA</option>
                         <option>I GUSTI NGURAH RAI</option>
@@ -78,6 +116,9 @@
                     Cari Sekarang
                 </button>
             </form>
+            <?php
+
+            ?>
 
 
 
@@ -85,30 +126,49 @@
 
         <!-- Ticket List -->
         <div class="mt-8 bg-white rounded-md shadow-lg overflow-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <img class="w-16" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Garuda">
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">04:25</td>
-                        <td class="px-6 py-4 whitespace-nowrap">7 Jam</td>
-                        <td class="px-6 py-4 whitespace-nowrap">Rp 2.023.850</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <a href="formPemesanan.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">View</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <?php if (count($penerbanganData) > 0) { ?>
+
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <?php
+                        foreach ($penerbanganData as $dataPenerbangan) {
+
+
+
+                        ?>
+                            <tr>
+
+                                <td class="px-6 py-4 whitespace-nowrap flex gap-2 items-center">
+                                    <img class="w-12" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Garuda">
+                                    <p class="font-medium text-gray-700"><?php echo $dataPenerbangan['maskapai'] ?></p>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])) ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><?php echo gmdate("H:i", strtotime($dataPenerbangan['waktu_kedatangan']) - strtotime($dataPenerbangan['waktu_keberangkatan'])) ?> Jam</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Rp <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a href="formPemesanan.php?id=<?php echo $dataPenerbangan['id'] ?>" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Pesan</a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            <?php } else { ?>
+                <div class="bg-indigo-600 px-4 py-3 text-white">
+                    <p class="text-center text-sm font-medium">
+                        Penerbangan Tidak Tersedia
+                    </p>
+                </div> <?php } ?>
         </div>
     </main>
 </body>
