@@ -171,59 +171,62 @@ if (isset($_POST['submit'])) {
             </div>
 
             <!-- Ticket List -->
-            <div class="mt-8 bg-white rounded-md shadow-lg overflow-auto">
+            <div class="mt-8 ">
                 <?php if (count($penerbanganData) > 0) { ?>
 
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maskapai</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Keberangkatan</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kedatangan</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <?php
-                            foreach ($penerbanganData as $dataPenerbangan) {
+                    <div class="flex flex-col gap-4">
+                        <?php
+                        foreach ($penerbanganData as $dataPenerbangan) {
+                        ?>
+                            <a href="#?id=<?php echo $dataPenerbangan['id'] ?>&jumlah=<?php echo $jumlahPenumpang ?>" class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5  rounded-lg border border-gray-100 bg-white p-6">
+                                <div class="flex items-center gap-4">
+                                    <img class="w-12" src="../../assets/img/<?php echo $dataPenerbangan['maskapai'] ?>.png" alt="Garuda">
 
 
-
-                            ?>
-                                <tr>
-
-                                    <td class="px-6 py-4 whitespace-nowrap flex gap-2 items-center">
-                                        <img class="w-12" src="https://logos-world.net/wp-content/uploads/2023/01/Garuda-Indonesia-Logo.jpg" alt="Garuda">
+                                    <div class="">
                                         <p class="font-medium text-gray-700"><?php echo $dataPenerbangan['maskapai'] ?></p>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])) ?></td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <?php
-                                        $waktuKeberangkatan = strtotime($dataPenerbangan['waktu_keberangkatan']);
-                                        $waktuKedatangan = strtotime($dataPenerbangan['waktu_kedatangan']);
 
-                                        $durasiDetik = $waktuKedatangan - $waktuKeberangkatan; // Durasi dalam detik
+                                    </div>
+                                </div>
 
-                                        $jam = floor($durasiDetik / 3600); // Jam
-                                        $menit = floor(($durasiDetik % 3600) / 60); // Menit
+                                <div class="flex gap-4">
+                                    <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])); ?></p>
+                                    <div class="flex flex-col justify-center items-center">
+                                        <h2 class="sr-only">Steps</h2>
 
-                                        // Format output as 1j 30m in one line
-                                        echo ($jam > 0 ? $jam . 'j ' : '') . ($menit > 0 ? $menit . 'm' : '');
-                                        ?>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap"><?php echo date("H:i", strtotime($dataPenerbangan['waktu_kedatangan'])) ?></td>
-                                    <td class="px-6 py-4 whitespace-nowrap">Rp <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <a href="formPemesanan.php?id=<?php echo $dataPenerbangan['id'] ?>" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Pesan</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                                        <div>
+
+                                            <p class="text-xs font-medium text-gray-500"><?php
+                                                                                            $waktuKeberangkatan = strtotime($dataPenerbangan['waktu_keberangkatan']);
+                                                                                            $waktuKedatangan = strtotime($dataPenerbangan['waktu_kedatangan']);
+
+                                                                                            $durasiDetik = $waktuKedatangan - $waktuKeberangkatan; // Durasi dalam detik
+
+                                                                                            $jam = floor($durasiDetik / 3600); // Jam
+                                                                                            $menit = floor(($durasiDetik % 3600) / 60); // Menit
+
+                                                                                            // Format output as 1j 30m in one line
+                                                                                            echo ($jam > 0 ? $jam . 'j ' : '') . ($menit > 0 ? $menit . 'm' : '');
+                                                                                            ?></p>
+                                        </div>
+
+                                        <div class="mt-2 w-32 overflow-hidden rounded-full bg-gray-200">
+                                            <div class="h-0.5 "></div>
+                                        </div>
+                                    </div>
+                                    <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_kedatangan'])); ?></p>
+                                </div>
+
+                                <p class="flex place-self-end font-bold text-xl sm:text-2xl text-rose-500">IDR <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></p>
+                            </a>
+                        <?php
+                        }
+                        ?>
+                    </div>
+
+
+
+
                 <?php } else { ?>
                     <div class="bg-indigo-600 px-4 py-3 text-white">
                         <p class="text-center text-sm font-medium">
