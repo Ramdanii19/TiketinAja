@@ -178,7 +178,7 @@ if (isset($_POST['submit'])) {
                         <?php
                         foreach ($penerbanganData as $dataPenerbangan) {
                         ?>
-                            <a href="#?id=<?php echo $dataPenerbangan['id'] ?>&jumlah=<?php echo $jumlahPenumpang ?>" class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5  rounded-lg border border-gray-100 bg-white p-6">
+                            <a href="formPemesanan.php?id=<?php echo $dataPenerbangan['id'] ?>&jumlah=<?php echo $jumlahPenumpang ?>&tipe=<?php echo $tipe ?>" class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5  rounded-lg border border-gray-100 bg-white p-6">
                                 <div class="flex items-center gap-4">
                                     <img class="w-12" src="../../assets/img/<?php echo $dataPenerbangan['maskapai'] ?>.png" alt="Garuda">
 

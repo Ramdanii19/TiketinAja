@@ -1,3 +1,8 @@
+<!-- <?php
+        $getID = $_GET['id'];
+        $getJML = $_GET['jumlah'];
+        $getTIPE = $_GET['tipe'];
+        ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +124,7 @@
         </div>
 
         <!-- Modal -->
-        <section id="order-modal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 items-center justify-center z-50">
+        <section id="order-modal" class="hidden flex fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 items-center justify-center z-50">
             <div class="rounded-3xl bg-white p-8 text-center sm:p-12">
                 <p class="text-sm font-semibold uppercase tracking-widest text-indigo-500">
                     Pesanan diproses
