@@ -277,24 +277,19 @@ if (isset($_POST['submit'])) {
         });
 
         // Fungsi swap untuk tukar posisi elemen
-        document.getElementById("swapButton").addEventListener("click", function() {
-            event.preventDefault(); // Ambil elemen bandaraAsal dan bandaraTujuan
-            console.log("Swap button clicked"); // Debugging message
+        document.getElementById("swapButton").addEventListener("click", function(event) {
+            event.preventDefault(); // Mencegah aksi default tombol
 
             const bandaraAsal = document.getElementById("bandaraAsal");
             const bandaraTujuan = document.getElementById("bandaraTujuan");
 
-            // Cari parent dari masing-masing elemen
-            const parentAsal = bandaraAsal.parentNode;
-            const parentTujuan = bandaraTujuan.parentNode;
+            // Simpan nilai saat ini
+            const asalValue = bandaraAsal.value;
+            const tujuanValue = bandaraTujuan.value;
 
-            // Simpan placeholder untuk membantu pertukaran
-            const placeholder = document.createElement("div");
-
-            // Tukar posisi elemen
-            parentAsal.replaceChild(placeholder, bandaraAsal);
-            parentTujuan.replaceChild(bandaraAsal, bandaraTujuan);
-            parentAsal.replaceChild(bandaraTujuan, placeholder);
+            // Tukar nilai
+            bandaraAsal.value = tujuanValue;
+            bandaraTujuan.value = asalValue;
         });
     });
 </script>
