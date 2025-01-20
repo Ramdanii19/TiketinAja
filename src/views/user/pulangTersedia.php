@@ -3,6 +3,7 @@ session_start();
 include "../../config/koneksi.php";
 
 // Store POST data in session variables
+$getPergi = $_GET['pergi'];
 if (isset($_POST["submit"])) {
     $_SESSION['tipe'] = isset($_POST["tipe"]) ? $_POST["tipe"] : '';
     $_SESSION['bandaraAsal'] = isset($_POST["bandaraAsal"]) ? $_POST["bandaraAsal"] : '';
@@ -126,7 +127,7 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
             <?php if (count($penerbanganData) > 0) { ?>
                 <div class="flex flex-col gap-4 mt-2">
                     <?php foreach ($penerbanganData as $dataPenerbangan) { ?>
-                        <a href="javascript:void(0)"
+                        <a href="formPemesanan.php?pergi=<?php echo $getPergi ?>&pulang=<?php echo $dataPenerbangan['id'] ?>"
                             class="penerbangan-item cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5 rounded-lg border border-gray-100 bg-white p-6"
                             data-asal="<?php echo $dataPenerbangan['asal']; ?>"
                             data-tujuan="<?php echo $dataPenerbangan['tujuan']; ?>">

@@ -127,8 +127,8 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                 <div class="flex flex-col gap-4 mt-2">
                     <?php foreach ($penerbanganData as $dataPenerbangan) { ?>
                         <a href="
-                        <?php echo ($_SESSION['kepulangan'] ? 'pulangTersedia.php?id=' . $dataPenerbangan['id']
-                            : 'formPemesanan.php?id=' . $dataPenerbangan['id']); ?>"
+                        <?php echo ($_SESSION['kepulangan'] ? 'pulangTersedia.php?pergi=' . $dataPenerbangan['id']
+                            : 'formPemesanan.php?pergi=' . $dataPenerbangan['id']); ?>"
                             class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5 rounded-lg border border-gray-100 bg-white p-6">
                             <div class="flex items-center gap-4 w-48">
                                 <img class="w-12" src="../../assets/img/<?php echo $dataPenerbangan['maskapai'] ?>.png" alt="Garuda">
