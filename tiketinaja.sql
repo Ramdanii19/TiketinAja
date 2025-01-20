@@ -33,7 +33,7 @@ CREATE TABLE `bookings` (
   `pesawat_id` int(11) NOT NULL,
   `booking_code` varchar(50) NOT NULL,
   `detail_penerbangan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`detail_penerbangan`)),
-  `total_price` decimal(10,2) NOT NULL,
+  `total_price` int(255) NOT NULL,
   `status` enum('pending','confirmed','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -55,7 +55,7 @@ CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
   `booking_id` int(11) NOT NULL,
   `payment_date` datetime NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
+  `amount` int(255) NOT NULL,
   `status` enum('pending','completed','failed') NOT NULL DEFAULT 'pending',
   `payment_method` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
