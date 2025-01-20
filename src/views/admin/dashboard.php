@@ -9,13 +9,11 @@
 </head>
 
 <body>
-  <div class="flex full">
-    <div class="flex flex-col justify-between border-e border-neutral-100 dark:border-neutral-800 w-1/5 ">
-      <div class="px-4 py-4 flex gap-4 items-center justify-center">
-        <!-- <div class="mb-2"><img src="../../assets/img/TiketinAja.png" alt="" class="w-10"></div> -->
-        <div class="">
+  <!-- SideBar -->
+  <div class="flex w-full">
+    <div class="flex flex-col justify-between border-e border-neutral-100 dark:border-neutral-800 w-1/6 ">
+      <div class="flex flex-col px-4 py-4 gap-2 text-center">
           <p class="font-bold text-xl text-blue-500">TiketinAja</p>
-        </div>
       </div>
       <div class="menu-wrapper">
         <ul class="space-y-1">
@@ -59,7 +57,87 @@
         </ul>
       </div>
     </div>
+
+    <div class="flex flex-col w-full">
+      <!-- Konten -->
+      <div class="flex flex-col px-8">
+        <p class="font-bold text-2xl py-10 text-blue-500">Dashboard</p>
+        <div class="grid grid-cols-4 gap-5">
+          <div class="flex flex-col rounded-xl gap-4 bg-[#d8f3ed] border-2 border-[#64b0a5] p-4">
+            <div class="flex gap-3">
+              <div class="bg-white rounded-xl">
+                <img src="../../assets/img/icon-user.png" alt="user" class="w-12 p-2">
+              </div>
+              <div class="">
+                <p class="font-bold">10</p>
+                <p class="text-slate-700 text-sm font-normal">Total User</p>
+              </div>
+            </div>
+            <a href="/user.php">
+              <div class="flex border-t-[1px] border-[#c2e7e4] justify-between items-center w-full">
+                <p class="text-[#64b0a5] font-bold text-xs mt-3">See Details</p>
+                <img src="../../assets/img/icon-arrow-green.png" alt="arrow" class="max-w-4 mt-3">
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col rounded-xl gap-4 bg-[#e4dfff] border-2 border-[#aca3d3] p-4">
+            <div class="flex gap-3">
+              <div class="bg-white rounded-xl">
+                <img src="../../assets/img/icon-pesawat.png" alt="pesawat" class="w-12 p-2">
+              </div>
+              <div class="">
+                <p class="font-bold">33</p>
+                <p class="text-slate-700 text-sm font-normal">Total Pesawat</p>
+              </div>
+            </div>
+            <a href="/pesawat.php">
+              <div class="flex border-t-[1px] border-[#dfd9fd] justify-between items-center w-full">
+                <p class="text-[#aca3d3] font-bold text-xs mt-3">See Details</p>
+                <img src="../../assets/img/icon-arrow-purple.png" alt="arrow" class="max-w-4 mt-3">
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col rounded-xl gap-4 bg-[#fee4cd] border-2 border-[#e0b88e] p-4">
+            <div class="flex gap-3">
+              <div class="bg-white rounded-xl">
+                <img src="../../assets/img/icon-penumpang.png" alt="user" class="w-12 p-2">
+              </div>
+              <div class="">
+                <p class="font-bold">28</p>
+                <p class="text-slate-700 text-sm font-normal">Total Penumpang</p>
+              </div>
+            </div>
+            <a href="/penumpang.php">
+              <div class="flex border-t-[1px] border-[#fcdcbb] justify-between items-center w-full">
+                <p class="text-[#e0b88e] font-bold text-xs mt-3">See Details</p>
+                <img src="../../assets/img/icon-arrow-orange.png" alt="arrow" class="max-w-4 mt-3">
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col rounded-xl gap-4 bg-[#ccebff] border-2 border-[#95c2db] p-4">
+            <div class="flex gap-3">
+              <div class="bg-white rounded-xl">
+                <img src="../../assets/img/icon-booking.png" alt="user" class="w-12 p-2">
+              </div>
+              <div class="">
+                <p class="font-bold">20</p>
+                <p class="text-slate-700 text-sm font-normal">Total Booking</p>
+              </div>
+            </div>
+            <a href="/booking.php">
+              <div class="flex border-t-[1px] border-[#bae2fd] justify-between items-center w-full">
+                <p class="text-[#95c2db] font-bold text-xs mt-3">See Details</p>
+                <img src="../../assets/img/icon-arrow-blue.png" alt="arrow" class="max-w-4 mt-3">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+
 </body>
 
 </html>
