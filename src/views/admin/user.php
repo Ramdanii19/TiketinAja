@@ -1,3 +1,11 @@
+<?php
+include "../../config/koneksi.php";
+$query = "SELECT * FROM user";
+$result = mysqli_query($conn, $query);
+$count = mysqli_num_rows($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,22 +136,29 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                        <td class="px-6 py-4 flex gap-3 w-full ">
-                            <a href="">Edit</a>
-                            <p>|</p>
-                            <a href="">Delet</a>
-                        </td>
+                    <?php
+                    if($count > 0){
+                    while($data=mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                      echo "<td class='px-6 py-4'>".$data['name']."</td>";
+                      echo "<td class='px-6 py-4'>".$data['email']."</td>";
+                      echo "<td class='px-6 py-4'>".$data['role']."</td>";
+                      echo "<td class='px-6 py-4 flex gap-3 w-full'>
+                              <a href='userEdit.php?id=" . $data['id'] . "'>Edit</a> |
+                              <a href='userDelete.php?id=" . $data['id'] . "' onclick='return confirm(\"Yakin ingin menghapus?\")'>Delete</a>
+                            </td>";
+                      echo "</tr>";
+                      }
+                    } else {
+                      echo "<tr>
+                                <td colspan='9' align='center' height='20'>
+                                  <div> Belum ada data Mahasiswa </div>
+                                </td>
+                            </tr>";
+                    }
+                  ?>
                     </tr>
                 </tbody>
             </table>
