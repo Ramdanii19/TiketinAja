@@ -60,7 +60,7 @@ while ($dataPesanan = mysqli_fetch_array($resultListPesanan, MYSQLI_ASSOC)) {
                                 $detail_penerbangan = json_decode($dataPesanan['detail_penerbangan'], true); // Decode JSON into an associative array
 
                             ?>
-                                <a href="#"
+                                <a href="detailPesanan.php?id=<?php echo $dataPesanan['id'] ?>"
                                     class=" cursor-pointer shadow-sm flex items-start sm:items-center justify-between flex-col sm:flex-row gap-5 rounded-lg border border-gray-100 bg-white p-6">
                                     <div class="flex items-center gap-4 w-64">
                                         <img class="w-12" src="../../assets/img/<?php echo $detail_penerbangan['maskapai'] ?>.png" alt="Garuda">
