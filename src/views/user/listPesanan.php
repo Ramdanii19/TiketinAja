@@ -77,16 +77,7 @@ while ($dataPesanan = mysqli_fetch_array($resultListPesanan, MYSQLI_ASSOC)) {
 
                                         <p class="font-semibold  text-gray-800"><?php echo $detail_penerbangan['tujuan'] ?></p>
                                     </div>
-                                    <?php
-                                    if ($dataPesanan['status'] == 'confirmed') { ?>
-                                        <p class="flex place-self-end focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><?php echo $dataPesanan['status'] ?></p>
-                                    <?php
-                                    } else { ?>
-
-                                        <p class="flex place-self-end  focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 bg-gray-500 text-white border-gray-600 hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700"><?php echo $dataPesanan['status'] ?></p>
-                                    <?php
-                                    }
-                                    ?>
+                                    <p class="flex place-self-end  text-white  font-medium rounded-lg text-sm px-5 py-2.5 <?php echo ($dataPesanan['status'] == 'confirmed' ? 'bg-green-600' : ($dataPesanan['status'] == 'canceled' ? 'bg-rose-500' : 'bg-gray-600')); ?>"><?php echo $dataPesanan['status'] ?></p>
                                 </a>
                             <?php } ?>
                         </div>
