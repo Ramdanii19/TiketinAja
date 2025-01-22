@@ -206,26 +206,38 @@
     </div>
   </div>
 
-  <script>
-  // Get the button and modal elements
+<script>
+  // Get all modal toggle buttons and modals
   const modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
-  const modalElements = document.querySelectorAll('.hidden');
+  const closeModalButtons = document.querySelectorAll('[data-modal-toggle="crud-modal"]');
+  const modals = document.querySelectorAll('.hidden');
 
-  modalToggleButtons.forEach(button => {
+  // Toggle modal visibility
+  modalToggleButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const target = button.getAttribute('data-modal-target');
+      const target = button.getAttribute('data-modal-target'); // Get the target modal ID
       const modal = document.getElementById(target);
-
+      
       if (modal) {
-        // Toggle modal visibility
-        modal.classList.toggle('hidden');
-        modal.classList.toggle('flex');
+        modal.classList.toggle('hidden'); // Toggle visibility
+        modal.classList.toggle('flex');  // Show modal as flexbox
       }
     });
   });
 
-  // Optional: Close modal when clicking outside the modal content
-  modalElements.forEach(modal => {
+  // Close modal when close button is clicked
+  closeModalButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.fixed'); // Find the parent modal container
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    });
+  });
+
+  // Close modal when clicking outside the modal content
+  modals.forEach((modal) => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.add('hidden');
@@ -234,6 +246,7 @@
     });
   });
 </script>
+
 
 
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
