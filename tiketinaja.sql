@@ -33,7 +33,7 @@ CREATE TABLE `bookings` (
   `pesawat_id` int(11) NOT NULL,
   `booking_code` varchar(50) NOT NULL,
   `detail_penerbangan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`detail_penerbangan`)),
-  `total_price` decimal(10,2) NOT NULL,
+  `total_price` int(255) NOT NULL,
   `status` enum('pending','confirmed','canceled') NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -55,7 +55,7 @@ CREATE TABLE `payment` (
   `id` int(11) NOT NULL,
   `booking_id` int(11) NOT NULL,
   `payment_date` datetime NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
+  `amount` int(255) NOT NULL,
   `status` enum('pending','completed','failed') NOT NULL DEFAULT 'pending',
   `payment_method` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -105,7 +105,7 @@ CREATE TABLE `pesawat` (
   `tujuan` varchar(100) NOT NULL,
   `waktu_keberangkatan` datetime NOT NULL,
   `waktu_kedatangan` datetime NOT NULL,
-  `price` decimal(10,2) NOT NULL,
+  `price` int(255) NOT NULL,
   `kursi` int(11) NOT NULL,
   `operasional` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`operasional`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -115,26 +115,39 @@ CREATE TABLE `pesawat` (
 --
 
 INSERT INTO `pesawat` (`id`, `nomor_penerbangan`, `maskapai`, `asal`, `tujuan`, `waktu_keberangkatan`, `waktu_kedatangan`, `price`, `kursi`, `operasional`) VALUES
-(1, 'GA-001', 'Garuda Indonesia', 'Jakarta', 'Bali', '2025-01-20 06:00:00', '2025-01-20 08:00:00', '1500000.00', 180, '[\"monday\", \"wednesday\", \"friday\"]'),
-(2, 'GA-002', 'Garuda Indonesia', 'Surabaya', 'Jakarta', '2025-01-20 09:00:00', '2025-01-20 11:00:00', '1300000.00', 180, '[\"tuesday\", \"thursday\"]'),
-(3, 'GA-003', 'Garuda Indonesia', 'Bandung', 'Medan', '2025-01-20 12:00:00', '2025-01-20 14:00:00', '1700000.00', 200, '[\"monday\", \"saturday\"]'),
-(4, 'GA-004', 'Garuda Indonesia', 'Bali', 'Makassar', '2025-01-20 07:00:00', '2025-01-20 09:00:00', '1600000.00', 180, '[\"sunday\"]'),
-(5, 'GA-005', 'Garuda Indonesia', 'Jakarta', 'Lombok', '2025-01-20 15:00:00', '2025-01-20 17:00:00', '1400000.00', 150, '[\"wednesday\", \"friday\"]'),
-(6, 'GA-006', 'Garuda Indonesia', 'Bali', 'Jakarta', '2025-01-20 06:00:00', '2025-01-20 08:00:00', '1500000.00', 160, '[\"monday\", \"tuesday\", \"saturday\"]'),
-(7, 'GA-007', 'Garuda Indonesia', 'Jakarta', 'Medan', '2025-01-20 10:00:00', '2025-01-20 13:00:00', '1800000.00', 200, '[\"thursday\", \"sunday\"]'),
-(8, 'GA-008', 'Garuda Indonesia', 'Jakarta', 'Yogyakarta', '2025-01-20 14:00:00', '2025-01-20 16:00:00', '1200000.00', 150, '[\"friday\"]'),
-(9, 'GA-009', 'Garuda Indonesia', 'Surabaya', 'Bali', '2025-01-20 17:00:00', '2025-01-20 18:30:00', '1000000.00', 180, '[\"wednesday\"]'),
-(10, 'GA-010', 'Garuda Indonesia', 'Makassar', 'Bandung', '2025-01-20 08:00:00', '2025-01-20 11:00:00', '2000000.00', 170, '[\"tuesday\", \"saturday\"]'),
-(11, 'JT-011', 'Lion Air', 'Jakarta', 'Medan', '2025-01-20 06:00:00', '2025-01-20 08:30:00', '1000000.00', 200, '[\"monday\", \"saturday\"]'),
-(12, 'JT-012', 'Lion Air', 'Bali', 'Surabaya', '2025-01-20 09:00:00', '2025-01-20 10:00:00', '900000.00', 180, '[\"tuesday\", \"thursday\", \"sunday\"]'),
-(13, 'JT-013', 'Lion Air', 'Jakarta', 'Lombok', '2025-01-20 15:00:00', '2025-01-20 17:30:00', '1300000.00', 150, '[\"friday\", \"saturday\"]'),
-(14, 'JT-014', 'Lion Air', 'Surabaya', 'Jakarta', '2025-01-20 07:00:00', '2025-01-20 09:00:00', '800000.00', 180, '[\"wednesday\", \"sunday\"]'),
-(15, 'JT-015', 'Lion Air', 'Bandung', 'Jakarta', '2025-01-20 13:00:00', '2025-01-20 14:30:00', '700000.00', 160, '[\"thursday\"]'),
-(16, 'JT-016', 'Lion Air', 'Medan', 'Jakarta', '2025-01-20 10:00:00', '2025-01-20 12:30:00', '1000000.00', 200, '[\"monday\", \"wednesday\"]'),
-(17, 'JT-017', 'Lion Air', 'Jakarta', 'Makassar', '2025-01-20 09:00:00', '2025-01-20 12:00:00', '1600000.00', 150, '[\"tuesday\", \"saturday\"]'),
-(18, 'JT-018', 'Lion Air', 'Bali', 'Jakarta', '2025-01-20 11:00:00', '2025-01-20 13:00:00', '1500000.00', 180, '[\"wednesday\", \"friday\"]'),
-(19, 'JT-019', 'Lion Air', 'Makassar', 'Medan', '2025-01-20 16:00:00', '2025-01-20 19:00:00', '2000000.00', 170, '[\"sunday\"]'),
-(20, 'JT-020', 'Lion Air', 'Jakarta', 'Surabaya', '2025-01-20 08:00:00', '2025-01-20 09:30:00', '900000.00', 200, '[\"friday\"]');
+(1, 'GA-001', 'Garuda Indonesia', 'Jakarta', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 0 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 2 HOUR), 1500000, 180, '["monday", "wednesday"]'),
+(2, 'GA-002', 'Garuda Indonesia', 'Surabaya', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 3 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 5 HOUR), 1300000, 180, '["tuesday"]'),
+(3, 'GA-003', 'Garuda Indonesia', 'Bandung', 'Medan', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 6 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 8 HOUR), 1700000, 200, '["monday", "friday"]'),
+(4, 'GA-004', 'Garuda Indonesia', 'Bali', 'Makassar', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 9 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 11 HOUR), 1600000, 180, '["sunday"]'),
+(5, 'GA-005', 'Garuda Indonesia', 'Jakarta', 'Lombok', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 12 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 14 HOUR), 1400000, 150, '["wednesday"]'),
+(6, 'JT-001', 'Lion Air', 'Medan', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 15 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 17 HOUR), 1000000, 200, '["monday"]'),
+(7, 'JT-002', 'Lion Air', 'Surabaya', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 18 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 20 HOUR), 900000, 180, '["tuesday"]'),
+(8, 'JT-003', 'Lion Air', 'Bandung', 'Makassar', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 21 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 23 HOUR), 2000000, 170, '["saturday"]'),
+(9, 'JT-004', 'Lion Air', 'Jakarta', 'Yogyakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 24 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 26 HOUR), 1200000, 150, '["friday"]'),
+(10, 'JT-005', 'Lion Air', 'Bali', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 27 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 1 DAY), INTERVAL 29 HOUR), 1500000, 180, '["monday"]'),
+-- Hari 2
+(11, 'GA-006', 'Garuda Indonesia', 'Jakarta', 'Medan', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 0 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 3 HOUR), 1800000, 200, '["tuesday"]'),
+(12, 'GA-007', 'Garuda Indonesia', 'Makassar', 'Bandung', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 4 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 7 HOUR), 2000000, 170, '["saturday"]'),
+(13, 'JT-006', 'Lion Air', 'Jakarta', 'Surabaya', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 8 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 10 HOUR), 900000, 200, '["friday"]'),
+(14, 'JT-007', 'Lion Air', 'Medan', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 11 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 14 HOUR), 1900000, 180, '["sunday"]'),
+(15, 'JT-008', 'Lion Air', 'Jakarta', 'Makassar', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 15 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 17 HOUR), 1600000, 150, '["tuesday"]'),
+(16, 'GA-008', 'Garuda Indonesia', 'Yogyakarta', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 18 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 20 HOUR), 1200000, 180, '["thursday"]'),
+(17, 'GA-009', 'Garuda Indonesia', 'Jakarta', 'Pontianak', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 21 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 23 HOUR), 1400000, 150, '["wednesday"]'),
+(18, 'JT-009', 'Lion Air', 'Surabaya', 'Bandung', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 24 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 26 HOUR), 1300000, 160, '["friday"]'),
+(19, 'JT-010', 'Lion Air', 'Jakarta', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 27 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 29 HOUR), 1500000, 180, '["sunday"]'),
+(20, 'GA-010', 'Garuda Indonesia', 'Lombok', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 30 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 2 DAY), INTERVAL 33 HOUR), 1700000, 200, '["monday"]'),
+-- Hari 3
+(21, 'GA-011', 'Garuda Indonesia', 'Jakarta', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 0 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 2 HOUR), 1500000, 180, '["monday", "wednesday"]'),
+(22, 'GA-012', 'Garuda Indonesia', 'Surabaya', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 3 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 5 HOUR), 1300000, 180, '["tuesday"]'),
+(23, 'GA-013', 'Garuda Indonesia', 'Bandung', 'Medan', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 6 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 8 HOUR), 1700000, 200, '["monday", "friday"]'),
+(24, 'GA-014', 'Garuda Indonesia', 'Bali', 'Makassar', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 9 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 11 HOUR), 1600000, 180, '["sunday"]'),
+(25, 'GA-015', 'Garuda Indonesia', 'Jakarta', 'Lombok', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 12 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 14 HOUR), 1400000, 150, '["wednesday"]'),
+(26, 'JT-011', 'Lion Air', 'Medan', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 15 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 17 HOUR), 1000000, 200, '["monday"]'),
+(27, 'JT-012', 'Lion Air', 'Surabaya', 'Bali', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 18 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 20 HOUR), 900000, 180, '["tuesday"]'),
+(28, 'JT-013', 'Lion Air', 'Bandung', 'Makassar', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 21 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 23 HOUR), 2000000, 170, '["saturday"]'),
+(29, 'JT-014', 'Lion Air', 'Jakarta', 'Yogyakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 24 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 26 HOUR), 1200000, 150, '["friday"]'),
+(30, 'JT-015', 'Lion Air', 'Bali', 'Jakarta', DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 27 HOUR), DATE_ADD(DATE_ADD(NOW(), INTERVAL 3 DAY), INTERVAL 29 HOUR), 1500000, 180, '["monday"]');
+
 
 -- --------------------------------------------------------
 
