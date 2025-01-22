@@ -83,6 +83,10 @@ $detail_penerbangan = json_decode($dataDetailPesanan['detail_penerbangan'], true
                                 <dt class="font-medium text-gray-900">Booking Code</dt>
                                 <dd class="text-gray-700 sm:col-span-2"><?php echo $dataDetailPesanan['booking_code']; ?></dd>
                             </div>
+                            <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4 px-5">
+                                <dt class="font-medium text-gray-900">Waktu</dt>
+                                <dd class="text-gray-700 sm:col-span-2"><?php echo date("l, d-m-Y", strtotime($detail_penerbangan['waktu_keberangkatan'])); ?></dd>
+                            </div>
 
                             <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4 px-5">
                                 <dt class="font-medium text-gray-900">Nama Penumpang</dt>
