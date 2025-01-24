@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['name'] = $user['name'];
 
                 // Redirect ke halaman dashboard setelah login
-                header("Location: dashboard.php");
+                header("Location: src/views/admin/dashboard.php");
                 exit();
             } else {
                 $error_message = "Invalid email or password!";
@@ -74,7 +74,7 @@ if (isset($_POST['login'])) {
 
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">Don't have an account?</p>
-            <a href="register.php" class="text-sm text-blue-600 hover:underline">Register here</a>
+            <a href="" class="text-sm text-blue-600 hover:underline">Register here</a>
         </div>
     </div>
 
