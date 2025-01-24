@@ -45,7 +45,7 @@ if (isset($_POST['register'])) {
     <title>Register</title>
     <link href="css/output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-indigo-600 flex items-center justify-center min-h-screen">
 
     <!-- Modal Notifikasi -->
     <?php if (isset($_GET['registered'])): ?>
