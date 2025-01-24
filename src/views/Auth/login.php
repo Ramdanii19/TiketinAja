@@ -47,7 +47,7 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <link href="src/assets/css/output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-indigo-600 flex items-center justify-center min-h-screen">
 
     <!-- Card Login -->
     <div id="login-form" class="bg-white p-8 rounded-lg shadow-lg w-96">
