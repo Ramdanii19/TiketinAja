@@ -86,7 +86,7 @@ if (isset($_POST['register'])) {
 
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">Already have an account?</p>
-            <a href="login.php" class="text-sm text-blue-600 hover:underline">Sign in here</a>
+            <a href="src/views/Auth/login.php" class="text-sm text-blue-600 hover:underline">Sign in here</a>
         </div>
     </div>
 
