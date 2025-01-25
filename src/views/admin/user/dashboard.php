@@ -1,5 +1,5 @@
 <?php
-include "../../config/koneksi.php";
+include "../../../config/koneksi.php";
 $query = "SELECT * FROM user";
 $result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
@@ -13,7 +13,7 @@ $count = mysqli_num_rows($result);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="../../assets/css/output.css" rel="stylesheet">
+  <link href="../../../assets/css/output.css" rel="stylesheet">
 </head>
 
 <body>
@@ -146,8 +146,8 @@ $count = mysqli_num_rows($result);
                           echo "<td class='px-6 py-4'>".$data['email']."</td>";
                           echo "<td class='px-6 py-4'>".$data['role']."</td>";
                           echo "<td class='px-6 py-4 flex gap-3 w-full'>
-                                  <a href='userEdit.php?id=" . $data['id'] . "'>Edit</a> |
-                                  <a href='userDelete.php?id=" . $data['id'] . "' onclick='return confirm(\"Yakin ingin menghapus?\")'>Delete</a>
+                                  <a href='edit.php?id=" . $data['id'] . "'>Edit</a> |
+                                  <a href='action/delete.php?id=" . $data['id'] . "' onclick='return confirm(\"Yakin ingin menghapus?\")'>Delete</a>
                                 </td>";
                           echo "</tr>";
                           }
