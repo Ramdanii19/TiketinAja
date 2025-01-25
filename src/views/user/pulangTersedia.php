@@ -6,13 +6,14 @@ $_SESSION['role'] = isset($_SESSION["role"]) ? $_SESSION["role"] : '';
 // Store POST data in session variables
 $getPergi = $_GET['pergi'];
 if (isset($_POST["submit"])) {
-    $_SESSION['tipe'] = isset($_POST["tipe"]) ? $_POST["tipe"] : '';
-    $_SESSION['bandaraAsal'] = isset($_POST["bandaraAsal"]) ? $_POST["bandaraAsal"] : '';
-    $_SESSION['bandaraTujuan'] = isset($_POST["bandaraTujuan"]) ? $_POST["bandaraTujuan"] : '';
-    $_SESSION['keberangkatan'] = isset($_POST["keberangkatan"]) ? $_POST["keberangkatan"] : '';
-    $_SESSION['kepulangan'] = isset($_POST["kepulangan"]) ? $_POST["kepulangan"] : '';
-    $_SESSION['jumlahPenumpang'] = isset($_POST["jumlah"]) ? $_POST["jumlah"] : '';
+    $_SESSION['tipe'] = isset($_POST["tipe"]) ? htmlspecialchars($_POST["tipe"]) : '';
+    $_SESSION['bandaraAsal'] = isset($_POST["bandaraAsal"]) ? htmlspecialchars($_POST["bandaraAsal"]) : '';
+    $_SESSION['bandaraTujuan'] = isset($_POST["bandaraTujuan"]) ? htmlspecialchars($_POST["bandaraTujuan"]) : '';
+    $_SESSION['keberangkatan'] = isset($_POST["keberangkatan"]) ? htmlspecialchars($_POST["keberangkatan"]) : '';
+    $_SESSION['kepulangan'] = isset($_POST["kepulangan"]) ? htmlspecialchars($_POST["kepulangan"]) : '';
+    $_SESSION['jumlahPenumpang'] = isset($_POST["jumlah"]) ? htmlspecialchars($_POST["jumlah"]) : '';
 }
+
 
 // Query untuk mencari tiket berdasarkan kriteria
 $queryCariTiket = "

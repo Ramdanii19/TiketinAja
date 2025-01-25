@@ -198,38 +198,38 @@ if (!isset($_POST['pesan'])) {
                     // Handle Pergi booking
                     $booking_code_pergi = 'BOOK-' . strtoupper(uniqid());
                     $detail_penerbangan_pergi = [
-                        "nomor_penerbangan" => $dataPergi[1],
-                        "maskapai" => $dataPergi[2],
-                        "asal" => $dataPergi[3],
-                        "tujuan" => $dataPergi[4],
-                        "waktu_keberangkatan" => $dataPergi[5],
-                        "waktu_kedatangan" => $dataPergi[6],
+                        "nomor_penerbangan" => htmlspecialchars($dataPergi[1]),
+                        "maskapai" => htmlspecialchars($dataPergi[2]),
+                        "asal" => htmlspecialchars($dataPergi[3]),
+                        "tujuan" => htmlspecialchars($dataPergi[4]),
+                        "waktu_keberangkatan" => htmlspecialchars($dataPergi[5]),
+                        "waktu_kedatangan" => htmlspecialchars($dataPergi[6]),
                     ];
-                    $total_price_pergi = $_POST['totalPergi'];
+                    $total_price_pergi = htmlspecialchars($_POST['totalPergi']);
 
                     $detail_penerbangan_pergi = json_encode($detail_penerbangan_pergi);
                     $queryBookingPergi = "INSERT INTO bookings (user_id, pesawat_id, booking_code, detail_penerbangan, total_price, status)
-                      VALUES ('$user_id', '$getPergi', '$booking_code_pergi', '$detail_penerbangan_pergi', '$total_price_pergi', 'pending')";
+                    VALUES ('$user_id', '$getPergi', '$booking_code_pergi', '$detail_penerbangan_pergi', '$total_price_pergi', 'pending')";
 
                     if (mysqli_query($conn, $queryBookingPergi)) {
                         $booking_id_pergi = mysqli_insert_id($conn);
 
                         // Insert passengers for Pergi
-                        $name = $_POST['namaDepan'] . ' ' . $_POST['namaBelakang'];
-                        $age = date("Y") - date("Y", strtotime($_POST['tanggalLahir']));
-                        $passport_number = $_POST['nomorPaspor'];
+                        $name = htmlspecialchars($_POST['namaDepan']) . ' ' . htmlspecialchars($_POST['namaBelakang']);
+                        $age = date("Y") - date("Y", strtotime(htmlspecialchars($_POST['tanggalLahir'])));
+                        $passport_number = htmlspecialchars($_POST['nomorPaspor']);
 
                         $queryPassengerPergi = "INSERT INTO penumpang (booking_id, name, age, passport_number) 
-                            VALUES ('$booking_id_pergi', '$name', '$age', '$passport_number')";
+                        VALUES ('$booking_id_pergi', '$name', '$age', '$passport_number')";
                         if (!mysqli_query($conn, $queryPassengerPergi)) {
                             $passengerErrors[] = mysqli_error($conn);
                         }
 
                         // Insert payment for Pergi
                         $payment_date = date('Y-m-d H:i:s');
-                        $payment_method = $_POST['paymentMethod'];
+                        $payment_method = htmlspecialchars($_POST['paymentMethod']);
                         $queryPaymentPergi = "INSERT INTO payment (booking_id, payment_date, amount, status, payment_method) 
-                          VALUES ('$booking_id_pergi', '$payment_date', '$total_price_pergi', 'pending', '$payment_method')";
+                        VALUES ('$booking_id_pergi', '$payment_date', '$total_price_pergi', 'pending', '$payment_method')";
 
                         if (!mysqli_query($conn, $queryPaymentPergi)) {
                             echo "Error inserting payment for Pergi: " . mysqli_error($conn);
@@ -242,32 +242,32 @@ if (!isset($_POST['pesan'])) {
                     if (isset($getPulang)) {
                         $booking_code_pulang = 'BOOK-' . strtoupper(uniqid());
                         $detail_penerbangan_pulang = [
-                            "nomor_penerbangan" => $dataPulang[1],
-                            "maskapai" => $dataPulang[2],
-                            "asal" => $dataPulang[3],
-                            "tujuan" => $dataPulang[4],
-                            "waktu_keberangkatan" => $dataPulang[5],
-                            "waktu_kedatangan" => $dataPulang[6],
+                            "nomor_penerbangan" => htmlspecialchars($dataPulang[1]),
+                            "maskapai" => htmlspecialchars($dataPulang[2]),
+                            "asal" => htmlspecialchars($dataPulang[3]),
+                            "tujuan" => htmlspecialchars($dataPulang[4]),
+                            "waktu_keberangkatan" => htmlspecialchars($dataPulang[5]),
+                            "waktu_kedatangan" => htmlspecialchars($dataPulang[6]),
                         ];
-                        $total_price_pulang = $_POST['totalPulang'];
+                        $total_price_pulang = htmlspecialchars($_POST['totalPulang']);
 
                         $detail_penerbangan_pulang = json_encode($detail_penerbangan_pulang);
                         $queryBookingPulang = "INSERT INTO bookings (user_id, pesawat_id, booking_code, detail_penerbangan, total_price, status)
-                           VALUES ('$user_id', '$getPulang', '$booking_code_pulang', '$detail_penerbangan_pulang', '$total_price_pulang', 'pending')";
+                        VALUES ('$user_id', '$getPulang', '$booking_code_pulang', '$detail_penerbangan_pulang', '$total_price_pulang', 'pending')";
 
                         if (mysqli_query($conn, $queryBookingPulang)) {
                             $booking_id_pulang = mysqli_insert_id($conn);
 
                             // Insert passengers for Pulang
                             $queryPassengerPulang = "INSERT INTO penumpang (booking_id, name, age, passport_number) 
-                                 VALUES ('$booking_id_pulang', '$name', '$age', '$passport_number')";
+                            VALUES ('$booking_id_pulang', '$name', '$age', '$passport_number')";
                             if (!mysqli_query($conn, $queryPassengerPulang)) {
                                 $passengerErrors[] = mysqli_error($conn);
                             }
 
                             // Insert payment for Pulang
                             $queryPaymentPulang = "INSERT INTO payment (booking_id, payment_date, amount, status, payment_method) 
-                               VALUES ('$booking_id_pulang', '$payment_date', '$total_price_pulang', 'pending', '$payment_method')";
+                            VALUES ('$booking_id_pulang', '$payment_date', '$total_price_pulang', 'pending', '$payment_method')";
                             if (!mysqli_query($conn, $queryPaymentPulang)) {
                                 echo "Error inserting payment for Pulang: " . mysqli_error($conn);
                             }
@@ -278,6 +278,7 @@ if (!isset($_POST['pesan'])) {
 
                     header("Location: listPesanan.php");
                 }
+
 
 
                     ?>

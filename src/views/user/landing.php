@@ -125,12 +125,12 @@ if (!isset($_POST['submit'])) {
                 <?php
             } else {
 
-                $tipe = $_POST["tipe"];
-                $bandaraAsal = $_POST["bandaraAsal"];
-                $bandaraTujuan = $_POST["bandaraTujuan"];
-                $keberangkatan = $_POST["keberangkatan"];
-                $kepulangan = !empty($_POST['kepulangan']) ? $_POST['kepulangan'] : NULL;
-                $jumlah = $_POST["jumlah"];
+                $tipe = htmlspecialchars($_POST["tipe"]);
+                $bandaraAsal = htmlspecialchars($_POST["bandaraAsal"]);
+                $bandaraTujuan = htmlspecialchars($_POST["bandaraTujuan"]);
+                $keberangkatan = htmlspecialchars($_POST["keberangkatan"]);
+                $kepulangan = !empty($_POST['kepulangan']) ? htmlspecialchars($_POST['kepulangan']) : NULL;
+                $jumlah = htmlspecialchars($_POST["jumlah"]);
             }
                 ?>
                 </div>
