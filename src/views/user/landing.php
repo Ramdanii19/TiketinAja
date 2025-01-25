@@ -57,18 +57,18 @@ if (!isset($_POST['submit'])) {
                         <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">Pesan Tiket Sekarang!</h2>
                         <fieldset class="mt-4 grid grid-cols-2 sm:flex gap-4">
                             <label class="flex justify-between sm:justify-start sm:items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                                <input type="radio" name="tipe" value="pp" id="pp" class="">
+                                <input required type="radio" name="tipe" value="pp" id="pp" class="">
                                 <span class="cursor-pointer">Pulang-Pergi</span>
                             </label>
                             <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                                <input type="radio" name="tipe" value="sekali" id="sekali" class="">
+                                <input required type="radio" name="tipe" value="sekali" id="sekali" class="">
                                 <span class="cursor-pointer">Sekali Jalan</span>
                             </label>
 
                         </fieldset>
                         <article class=" mt-4 rounded-lg bg-white p-6 shadow-lg border border-gray-200">
                             <div class="flex flex-wrap flex-grow-0 gap-4 justify-center">
-                                <select id="bandaraAsal" name="bandaraAsal" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
+                                <select required id="bandaraAsal" name="bandaraAsal" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
                                     <option value="">Bandara Asal</option>
 
                                     <?php
@@ -92,7 +92,7 @@ if (!isset($_POST['submit'])) {
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10L21 7M21 7L18 4M21 7H7M6 14L3 17M3 17L6 20M3 17H17" />
                                     </svg>
                                 </button>
-                                <select id="bandaraTujuan" name="bandaraTujuan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
+                                <select required id="bandaraTujuan" name="bandaraTujuan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border">
                                     <option value="">Bandara Tujuan</option>
                                     <?php
                                     $uniqueTujuan = [];
@@ -109,10 +109,10 @@ if (!isset($_POST['submit'])) {
                                     }
                                     ?>
                                 </select>
-                                <input type="date" name="keberangkatan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" min="<?php echo date('Y-m-d'); ?>" />
+                                <input required type="date" name="keberangkatan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" min="<?php echo date('Y-m-d'); ?>" />
                                 <input type="date" id="kepulangan" name="kepulangan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" placeholder="Tanggal Pulang" min="<?php echo date('Y-m-d'); ?>" />
 
-                                <input type="number" name="jumlah" placeholder="Jumlah Penumpang" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" />
+                                <input required type="number" name="jumlah" min=1 placeholder="Jumlah Penumpang" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" />
                             </div>
 
                             <div class="mt-4 flex justify-center">

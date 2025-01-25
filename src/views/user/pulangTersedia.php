@@ -74,11 +74,11 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                 <!-- Radio buttons for trip type -->
                 <fieldset class="grid grid-cols-2 sm:flex gap-4">
                     <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                        <input disabled type="radio" name="tipe" value="pp" id="pp" <?php if ($_SESSION['tipe'] == 'pp') echo 'checked'; ?>>
+                        <input required disabled type="radio" name="tipe" value="pp" id="pp" <?php if ($_SESSION['tipe'] == 'pp') echo 'checked'; ?>>
                         <span class="cursor-pointer">Pulang-Pergi</span>
                     </label>
                     <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                        <input disabled type="radio" name="tipe" value="sekali" id="sekali" <?php if ($_SESSION['tipe'] == 'sekali') echo 'checked'; ?>>
+                        <input required disabled type="radio" name="tipe" value="sekali" id="sekali" <?php if ($_SESSION['tipe'] == 'sekali') echo 'checked'; ?>>
                         <span class="cursor-pointer">Sekali Jalan</span>
                     </label>
                 </fieldset>
@@ -118,9 +118,9 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                         }
                         ?>
                     </select>
-                    <input disabled type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
-                    <input type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
-                    <input disabled type="number" name="jumlah" value="<?php echo $_SESSION['jumlahPenumpang'] ?>" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm w-full border-gray-300">
+                    <input required disabled type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
+                    <input required type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
+                    <input required disabled type="number" name="jumlah" value="<?php echo $_SESSION['jumlahPenumpang'] ?>" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm w-full border-gray-300">
                 </div>
 
                 <!-- Submit Button -->
