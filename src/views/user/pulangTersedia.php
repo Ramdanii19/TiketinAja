@@ -112,12 +112,12 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                         ?>
                     </select>
                     <input disabled type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
-                    <input disabled type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
+                    <input type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
                     <input disabled type="number" name="jumlah" value="<?php echo $_SESSION['jumlahPenumpang'] ?>" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm w-full border-gray-300">
                 </div>
 
                 <!-- Submit Button -->
-                <button disabled type="submit" name="submit" class="block w-full rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">Cari Sekarang</button>
+                <button type="submit" name="submit" class="block w-full rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">Cari Sekarang</button>
             </form>
         </div>
 
