@@ -1,8 +1,12 @@
 <?php
 session_start();
 include "../../config/koneksi.php";
-
-$user_id = 2;
+$_SESSION['role'] = isset($_SESSION["role"]) ? $_SESSION["role"] : '';
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
+    header("Location: ../Auth/login.php");
+    exit;
+}
+$user_id = $_SESSION['id'];
 // Store POST data in session variables
 $getPergi = $_GET['pergi'];
 if (isset($_GET['pulang'])) {
@@ -273,7 +277,6 @@ if (!isset($_POST['pesan'])) {
                     }
 
                     header("Location: listPesanan.php");
-                    session_destroy();
                 }
 
 

@@ -1,5 +1,11 @@
 <?php
+session_start();
 include "../../config/koneksi.php";
+$_SESSION['role'] = isset($_SESSION["role"]) ? $_SESSION["role"] : '';
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
+    header("Location: ../Auth/login.php");
+    exit;
+}
 $getID = $_GET['id'];
 $queryDetailPesanan = "SELECT 
         b.booking_code, 

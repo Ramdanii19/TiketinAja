@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../../config/koneksi.php";
+$_SESSION['role'] = isset($_SESSION["role"]) ? $_SESSION["role"] : '';
 
 // Store POST data in session variables
 $getPergi = $_GET['pergi'];

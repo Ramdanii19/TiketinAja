@@ -24,6 +24,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['role'] = $user['role'];
+                $_SESSION['id'] = $user['id'];
 
                 // Redirect ke halaman dashboard setelah login
                 header("Location: ../user/landing.php");

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../../config/koneksi.php";
-$_SESSION['role'];
+$_SESSION['role'] = isset($_SESSION["role"]) ? $_SESSION["role"] : '';
 $queryPenerbangan = "SELECT * FROM pesawat";
 $resultPenerbangan = mysqli_query($conn, $queryPenerbangan);
 $countPenerbangan = mysqli_num_rows($resultPenerbangan);

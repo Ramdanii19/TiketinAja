@@ -1,6 +1,8 @@
 <?php
+session_start();
 include "../../config/koneksi.php";
-$user_id = 2;
+$_SESSION['role'];
+$user_id = $_SESSION['id'];
 
 $queryListPesanan = "SELECT * FROM bookings WHERE user_id = '$user_id'";
 $resultListPesanan = mysqli_query($conn, $queryListPesanan);
