@@ -23,9 +23,10 @@ if (isset($_POST['login'])) {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['name'] = $user['name'];
+                $_SESSION['role'] = $user['role'];
 
                 // Redirect ke halaman dashboard setelah login
-                header("Location: src/views/admin/dashboard.php");
+                header("Location: ../user/landing.php");
                 exit();
             } else {
                 $error_message = "Invalid email or password!";
