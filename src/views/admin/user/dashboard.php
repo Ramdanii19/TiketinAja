@@ -4,6 +4,20 @@ $query = "SELECT * FROM user";
 $result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
 
+//delete
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $delUser = "DELETE FROM user WHERE id='$id'";
+  $resultUser = mysqli_query($conn, $delUser);
+
+  if ($resultUser) {
+      echo "<script>alert('Daftar Berhasil Dihapus!');</script>";
+      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
+  } else {
+      echo "<script>alert('Daftar Gagal Dihapus!');</script>";
+      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +151,7 @@ $count = mysqli_num_rows($result);
                     </tr>
                 </thead>
 
-                <tbody
+                <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <?php
                         if($count > 0){
@@ -146,8 +160,11 @@ $count = mysqli_num_rows($result);
                           echo "<td class='px-6 py-4'>".$data['email']."</td>";
                           echo "<td class='px-6 py-4'>".$data['role']."</td>";
                           echo "<td class='px-6 py-4 flex gap-3 w-full'>
-                                  <a href='edit.php?id=" . $data['id'] . "'>Edit</a> |
-                                  <a href='action/delete.php?id=" . $data['id'] . "' onclick='return confirm(\"Yakin ingin menghapus?\")'>Delete</a>
+                                  <button data-modal-target='crud-modal' data-modal-toggle='crud-modal' class='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' type='button'>
+                                    Edit User
+                                  </button>
+                                  <a href='?id=" . $data['id'] . "'>Edit</a> |
+                                  <a href='?id=" . $data['id'] . "' onclick='return confirm(\"Yakin ingin menghapus?\")'>Delete</a>
                                 </td>";
                           echo "</tr>";
                           }
@@ -225,10 +242,10 @@ $count = mysqli_num_rows($result);
 
                       if($queryUser) {
                         echo"<script>alert('Daftar Berhasil Disimpan !') </script>";  
-                        echo"<script type='text/javascript'>window.location = 'user.php'</script>";  
+                        echo"<script type='text/javascript'>window.location = 'dashboard.php'</script>";  
                       } else {
                         echo"<script>alert('Daftar Gagal Disimpan !') </script>";  
-                        echo"<script type='text/javascript'>window.location = 'user.php'</script>";  
+                        echo"<script type='text/javascript'>window.location = 'dashboard.php'</script>";  
                       }
                     }
                     ?>
