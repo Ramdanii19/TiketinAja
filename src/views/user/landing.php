@@ -2,10 +2,6 @@
 session_start();
 include "../../config/koneksi.php";
 $_SESSION['role'];
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
-    header("Location: ../Auth/login.php");
-    exit;
-}
 $queryPenerbangan = "SELECT * FROM pesawat";
 $resultPenerbangan = mysqli_query($conn, $queryPenerbangan);
 $countPenerbangan = mysqli_num_rows($resultPenerbangan);
@@ -39,10 +35,10 @@ if (!isset($_POST['submit'])) {
                     <?= ($_SESSION['role']) ? '<a href="../Auth/logout.php" class="rounded-md bg-rose-800 px-5 py-2.5 text-sm font-medium text-slate-100">
                             Logout
                         </a>' : '<div class="flex items-center gap-4">
-                        <a href="#" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow">
+                        <a href="../Auth/login.php" class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow">
                             Login
                         </a>
-                        <a href="#" class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600">
+                        <a href="../Auth/register.php" class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600">
                             Register
                         </a>
                     </div>'  ?>
