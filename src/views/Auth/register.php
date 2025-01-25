@@ -1,5 +1,5 @@
 <?php
-include 'src/config/koneksi.php'; // Koneksi ke database
+include '../../config/koneksi.php'; // Koneksi ke database
 
 // Proses Registrasi
 if (isset($_POST['register'])) {
@@ -39,12 +39,14 @@ if (isset($_POST['register'])) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="css/output.css" rel="stylesheet">
+    <link href="../../assets/css/output.css" rel="stylesheet">
 </head>
+
 <body class="bg-indigo-600 flex items-center justify-center min-h-screen">
 
     <!-- Modal Notifikasi -->
@@ -91,4 +93,5 @@ if (isset($_POST['register'])) {
     </div>
 
 </body>
+
 </html>

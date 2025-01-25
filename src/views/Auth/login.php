@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'src/config/koneksi.php'; // Koneksi ke database
+include '../../config/koneksi.php'; // Koneksi ke database
 
 // Proses Login
 if (isset($_POST['login'])) {
@@ -41,12 +41,14 @@ if (isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="src/assets/css/output.css" rel="stylesheet">
+    <link href="../../assets/css/output.css" rel="stylesheet">
 </head>
+
 <body class="bg-indigo-600 flex items-center justify-center min-h-screen">
 
     <!-- Card Login -->
@@ -79,4 +81,5 @@ if (isset($_POST['login'])) {
     </div>
 
 </body>
+
 </html>
