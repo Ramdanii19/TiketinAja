@@ -7,10 +7,10 @@ $count = mysqli_num_rows($result);
 //delete
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $delUser = "DELETE FROM user WHERE id='$id'";
-  $resultUser = mysqli_query($conn, $delUser);
+  $delPesawat = "DELETE FROM pesawat WHERE id='$id'";
+  $resultPesawat = mysqli_query($conn, $delPesawat);
 
-  if ($resultUser) {
+  if ($resultPesawat) {
       echo "<script>alert('Daftar Berhasil Dihapus!');</script>";
       echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
   } else {
