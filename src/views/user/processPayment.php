@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
         $totalPrice = $row['total_price'];
 
         // Reduce available seats
-        $queryUpdateSeats = "UPDATE pesawat SET kursi = kursi - price/$totalPrice WHERE id = '$pesawatID'";
+        $queryUpdateSeats = "UPDATE pesawat SET kursi = kursi - $totalPrice/price WHERE id = '$pesawatID'";
 
         // Execute all queries
         if (mysqli_query($conn, $queryPayment) && mysqli_query($conn, $queryBooking) && mysqli_query($conn, $queryUpdateSeats)) {
