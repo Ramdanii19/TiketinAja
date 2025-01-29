@@ -7,6 +7,7 @@ $user_id = $_SESSION['id'];
 $queryListPesanan = "SELECT * FROM bookings WHERE user_id = '$user_id'";
 $resultListPesanan = mysqli_query($conn, $queryListPesanan);
 $penerbanganData = [];
+$pesananData = [];
 while ($dataPesanan = mysqli_fetch_array($resultListPesanan, MYSQLI_ASSOC)) {
     $pesananData[] = $dataPesanan;
 }
@@ -66,8 +67,9 @@ while ($dataPesanan = mysqli_fetch_array($resultListPesanan, MYSQLI_ASSOC)) {
                             <?php } ?>
                         </div>
                     <?php } else { ?>
-                        <div class="bg-white p-4 text-gray-700 rounded-md">
-                            <p class="text-center text-sm font-medium">Penerbangan Tidak Tersedia</p>
+                        <div class="bg-white p-4 text-slate-900 rounded-md flex gap-1 justify-center flex-col items-center">
+                            <p class="text-sm font-medium">Penerbangan Tidak Tersedia</p>
+                            <a href="landing.php" class="text-xs font-bold text-blue-600">Pesan Sekarang</a>
                         </div>
                     <?php } ?>
                 </div>

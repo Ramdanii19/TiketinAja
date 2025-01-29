@@ -101,8 +101,8 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                         }
                         ?>
                     </select>
-                    <input required type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
-                    <input type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
+                    <input required type="date" id="keberangkatan" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" min="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" min="<?php echo date('Y-m-d'); ?>">
                     <input required type="number" name="jumlah" min=1 value="<?php echo $_SESSION['jumlahPenumpang'] ?>" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm w-full border-gray-300">
                 </div>
 
@@ -116,39 +116,48 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
             <h1 class="text-lg font-bold text-gray-700 sm:text-xl">Jadwal Pergi</h1>
             <?php if (count($penerbanganData) > 0) { ?>
                 <div class="flex flex-col gap-4 mt-2">
-                    <?php foreach ($penerbanganData as $dataPenerbangan) { ?>
-                        <a href="
-                        <?php echo ($_SESSION['kepulangan'] ? 'pulangTersedia.php?pergi=' . $dataPenerbangan['id']
-                            : 'formPemesanan.php?pergi=' . $dataPenerbangan['id']); ?>"
-                            class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5 rounded-lg border border-gray-100 bg-white p-6">
-                            <div class="flex items-center gap-4 w-48">
-                                <img class="w-12" src="../../assets/img/<?php echo $dataPenerbangan['maskapai'] ?>.png" alt="Garuda">
-                                <div>
-                                    <p class="text-sm sm:text-base font-medium text-gray-700"><?php echo $dataPenerbangan['maskapai'] ?></p>
-                                </div>
-                            </div>
+                    <?php foreach ($penerbanganData as $dataPenerbangan) {
+                        if ($dataPenerbangan['kursi'] >= $_SESSION['jumlahPenumpang']) {
+                    ?>
 
-                            <div class="flex gap-4">
-                                <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])); ?></p>
-                                <div class="flex flex-col justify-center items-center">
-                                    <p class="text-xs font-medium text-gray-500"><?php
-                                                                                    $waktuKeberangkatan = strtotime($dataPenerbangan['waktu_keberangkatan']);
-                                                                                    $waktuKedatangan = strtotime($dataPenerbangan['waktu_kedatangan']);
-                                                                                    $durasiDetik = $waktuKedatangan - $waktuKeberangkatan;
-                                                                                    $jam = floor($durasiDetik / 3600);
-                                                                                    $menit = floor(($durasiDetik % 3600) / 60);
-                                                                                    echo ($jam > 0 ? $jam . 'j ' : '') . ($menit > 0 ? $menit . 'm' : '');
-                                                                                    ?></p>
-                                    <div class="mt-2 w-32 overflow-hidden rounded-full bg-gray-200">
-                                        <div class="h-0.5"></div>
+                            <a href="
+                        <?php echo ($_SESSION['kepulangan'] ? 'pulangTersedia.php?pergi=' . $dataPenerbangan['id']
+                                : 'formPemesanan.php?pergi=' . $dataPenerbangan['id']); ?>"
+                                class="cursor-pointer shadow-sm flex items-start justify-between flex-col sm:flex-row gap-5 rounded-lg border border-gray-100 bg-white p-6">
+                                <div class="flex items-center gap-4 w-48">
+                                    <img class="w-12" src="../../assets/img/<?php echo $dataPenerbangan['maskapai'] ?>.png" alt="Garuda">
+                                    <div>
+                                        <p class="text-sm sm:text-base font-medium text-gray-700"><?php echo $dataPenerbangan['maskapai'] ?></p>
                                     </div>
                                 </div>
-                                <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_kedatangan'])); ?></p>
-                            </div>
 
-                            <p class="flex place-self-end font-bold text-xl sm:text-2xl text-rose-500">IDR <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></p>
-                        </a>
-                    <?php } ?>
+                                <div class="flex gap-4">
+                                    <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_keberangkatan'])); ?></p>
+                                    <div class="flex flex-col justify-center items-center">
+                                        <p class="text-xs font-medium text-gray-500"><?php
+                                                                                        $waktuKeberangkatan = strtotime($dataPenerbangan['waktu_keberangkatan']);
+                                                                                        $waktuKedatangan = strtotime($dataPenerbangan['waktu_kedatangan']);
+                                                                                        $durasiDetik = $waktuKedatangan - $waktuKeberangkatan;
+                                                                                        $jam = floor($durasiDetik / 3600);
+                                                                                        $menit = floor(($durasiDetik % 3600) / 60);
+                                                                                        echo ($jam > 0 ? $jam . 'j ' : '') . ($menit > 0 ? $menit . 'm' : '');
+                                                                                        ?></p>
+                                        <div class="mt-2 w-32 overflow-hidden rounded-full bg-gray-200">
+                                            <div class="h-0.5"></div>
+                                        </div>
+                                    </div>
+                                    <p class="font-semibold text-xl sm:text-2xl text-gray-800"><?php echo date('H:i', strtotime($dataPenerbangan['waktu_kedatangan'])); ?></p>
+                                </div>
+
+                                <p class="flex place-self-end font-bold text-xl sm:text-2xl text-rose-500">IDR <?php echo number_format($dataPenerbangan['price'], 0, ',', '.') ?></p>
+
+                            </a>
+                        <?php } else { ?>
+                            <div class="bg-indigo-600 px-4 py-3 text-white">
+                                <p class="text-center text-sm font-medium">Kursi Penuh</p>
+                            </div>
+                    <?php }
+                    } ?>
                 </div>
             <?php } else { ?>
                 <div class="bg-indigo-600 px-4 py-3 text-white">
@@ -180,6 +189,29 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                 [bandaraAsal.value, bandaraTujuan.value] = [bandaraTujuan.value, bandaraAsal.value];
             });
         });
+
+        function updateKepulanganMin() {
+            let keberangkatanInput = document.getElementById("keberangkatan");
+            let kepulanganInput = document.getElementById("kepulangan");
+
+            if (keberangkatanInput.value) {
+                let keberangkatanDate = new Date(keberangkatanInput.value);
+                let nextDay = new Date(keberangkatanDate);
+                nextDay.setDate(nextDay.getDate() + 1);
+                kepulanganInput.min = nextDay.toISOString().split("T")[0];
+
+                // Ensure kepulangan is valid after keberangkatan
+                if (kepulanganInput.value && new Date(kepulanganInput.value) <= keberangkatanDate) {
+                    kepulanganInput.value = "";
+                }
+            }
+        }
+
+        // Run the function on page load
+        document.addEventListener("DOMContentLoaded", updateKepulanganMin);
+
+        // Run the function when keberangkatan changes
+        document.getElementById("keberangkatan").addEventListener("change", updateKepulanganMin);
     </script>
 </body>
 
