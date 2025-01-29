@@ -41,7 +41,7 @@ if (!isset($_POST['submit'])) {
                                 <span class="cursor-pointer">Pulang-Pergi</span>
                             </label>
                             <label class="flex justify-start items-center gap-4 bg-white rounded-lg px-5 py-3 text-sm">
-                                <input required type="radio" name="tipe" value="sekali" id="sekali" class="">
+                                <input required type="radio" name="tipe" value="sekali" id="sekali" class="" checked>
                                 <span class="cursor-pointer">Sekali Jalan</span>
                             </label>
 
@@ -128,7 +128,7 @@ if (!isset($_POST['submit'])) {
             const swapButton = document.getElementById("swapButton");
 
             // Default state
-            kepulangan.style.display = 'block';
+            kepulangan.style.display = 'none';
 
             // Event listeners
             pp.addEventListener('change', () => {
