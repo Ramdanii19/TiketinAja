@@ -102,8 +102,8 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                         }
                         ?>
                     </select>
-                    <input required disabled type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat">
-                    <input required type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" value="<?php echo $_SESSION['kepulangan'] ?>">
+                    <input id="keberangkatan" required disabled type="date" name="keberangkatan" value="<?php echo $_SESSION['keberangkatan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Berangkat" min="<?php echo date('Y-m-d'); ?>">
+                    <input id="kepulangan" required type="date" id="kepulangan" name="kepulangan" value="<?php echo $_SESSION['kepulangan'] ?>" class="p-4 rounded-lg w-full border-gray-300" placeholder="Tanggal Pulang" min="<?php echo date('Y-m-d'); ?>">
                     <input required disabled type="number" name="jumlah" value="<?php echo $_SESSION['jumlahPenumpang'] ?>" placeholder="Jumlah Penumpang" class="p-4 rounded-lg bg-white text-sm w-full border-gray-300">
                 </div>
 
@@ -183,7 +183,28 @@ while ($dataPesawat = mysqli_fetch_array($resultPesawat, MYSQLI_ASSOC)) {
                 const bandaraTujuan = document.getElementById("bandaraTujuan");
                 [bandaraAsal.value, bandaraTujuan.value] = [bandaraTujuan.value, bandaraAsal.value];
             });
-
-
         });
+
+        function updateKepulanganMin() {
+            let keberangkatanInput = document.getElementById("keberangkatan");
+            let kepulanganInput = document.getElementById("kepulangan");
+
+            if (keberangkatanInput.value) {
+                let keberangkatanDate = new Date(keberangkatanInput.value);
+                let nextDay = new Date(keberangkatanDate);
+                nextDay.setDate(nextDay.getDate() + 1);
+                kepulanganInput.min = nextDay.toISOString().split("T")[0];
+
+                // Ensure kepulangan is valid after keberangkatan
+                if (kepulanganInput.value && new Date(kepulanganInput.value) <= keberangkatanDate) {
+                    kepulanganInput.value = "";
+                }
+            }
+        }
+
+        // Run the function on page load
+        document.addEventListener("DOMContentLoaded", updateKepulanganMin);
+
+        // Run the function when keberangkatan changes
+        document.getElementById("keberangkatan").addEventListener("change", updateKepulanganMin);
     </script>

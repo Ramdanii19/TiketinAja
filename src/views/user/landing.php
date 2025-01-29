@@ -89,7 +89,7 @@ if (!isset($_POST['submit'])) {
                                     }
                                     ?>
                                 </select>
-                                <input required type="date" name="keberangkatan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" min="<?php echo date('Y-m-d'); ?>" />
+                                <input required type="date" id="keberangkatan" name="keberangkatan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" min="<?php echo date('Y-m-d'); ?>" />
                                 <input type="date" id="kepulangan" name="kepulangan" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" placeholder="Tanggal Pulang" min="<?php echo date('Y-m-d'); ?>" />
 
                                 <input required type="number" name="jumlah" min=1 placeholder="Jumlah Penumpang" class="w-full sm:w-auto rounded-md border-gray-300 px-4 py-2 text-gray-700 sm:text-sm border" />
@@ -154,4 +154,27 @@ if (!isset($_POST['submit'])) {
                 bandaraTujuan.value = asalValue;
             });
         });
+
+        function updateKepulanganMin() {
+            let keberangkatanInput = document.getElementById("keberangkatan");
+            let kepulanganInput = document.getElementById("kepulangan");
+
+            if (keberangkatanInput.value) {
+                let keberangkatanDate = new Date(keberangkatanInput.value);
+                let nextDay = new Date(keberangkatanDate);
+                nextDay.setDate(nextDay.getDate() + 1);
+                kepulanganInput.min = nextDay.toISOString().split("T")[0];
+
+                // Ensure kepulangan is valid after keberangkatan
+                if (kepulanganInput.value && new Date(kepulanganInput.value) <= keberangkatanDate) {
+                    kepulanganInput.value = "";
+                }
+            }
+        }
+
+        // Run the function on page load
+        document.addEventListener("DOMContentLoaded", updateKepulanganMin);
+
+        // Run the function when keberangkatan changes
+        document.getElementById("keberangkatan").addEventListener("change", updateKepulanganMin);
     </script>
