@@ -4,20 +4,6 @@ $query = "SELECT * FROM pesawat";
 $result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
 
-//delete
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $delPesawat = "DELETE FROM pesawat WHERE id='$id'";
-  $resultPesawat = mysqli_query($conn, $delPesawat);
-
-  if ($resultPesawat) {
-      echo "<script>alert('Daftar Berhasil Dihapus!');</script>";
-      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
-  } else {
-      echo "<script>alert('Daftar Gagal Dihapus!');</script>";
-      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
-  }
-}
 ?>
 
 <!DOCTYPE html>
