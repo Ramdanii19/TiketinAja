@@ -3,7 +3,6 @@ include "../../../config/koneksi.php";
 $query = "SELECT * FROM pesawat";
 $result = mysqli_query($conn, $query);
 $count = mysqli_num_rows($result);
-
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +201,7 @@ $count = mysqli_num_rows($result);
                           <td class='px-6 py-4'><?php echo $data['operasional']; ?></td>
                           <td class='px-6 py-4 flex gap-3 w-full'>
                             <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" ><a href='?id=<?php echo $data['id']; ?>' class="text-blue-500"><i class="fas fa-edit"></i></a></button>
-                            <a href='?id=<?php echo $data['id']; ?>' onclick='return confirm("Yakin ingin menghapus?")' class="text-red-500"><i class="fas fa-trash"></i></a>
+                            <a href='delete.php?id=<?php echo $data['id']; ?>' onclick='return confirm("Yakin ingin menghapus?")' class="text-red-500"><i class="fas fa-trash"></i></a>
                           </td>
                           </tr>
                           <?php  }

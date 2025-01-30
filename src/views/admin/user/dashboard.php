@@ -90,7 +90,7 @@ $count = mysqli_num_rows($result);
     <div class="flex flex-col w-full">
       <!-- Konten -->
       <div class="flex flex-col py-10 px-8">
-        <p class="font-bold text-2xl text-blue-500">Dashboard</p>
+        <p class="font-bold text-2xl text-blue-500">User</p>
         
         <!-- Modal toggle -->
         <div class="flex justify-end">

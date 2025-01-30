@@ -81,7 +81,7 @@
     <div class="flex flex-col w-full">
       <!-- Konten -->
       <div class="flex flex-col py-10 px-8">
-        <p class="font-bold text-2xl text-blue-500">Dashboard</p>
+        <p class="font-bold text-2xl text-blue-500 mb-4">Dashboard</p>
         <div class="grid grid-cols-4 gap-5">
           <div class="flex flex-col rounded-xl gap-4 bg-[#d8f3ed] border-2 border-[#64b0a5] p-4">
             <div class="flex gap-3">
