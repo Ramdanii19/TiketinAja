@@ -11,7 +11,7 @@ $count = mysqli_num_rows($result);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Pesawat</title>
   <link href="../../../assets/css/output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -200,7 +200,7 @@ $count = mysqli_num_rows($result);
                           <td class='px-6 py-4'><?php echo $data['kursi']; ?></td>
                           <td class='px-6 py-4'><?php echo $data['operasional']; ?></td>
                           <td class='px-6 py-4 flex gap-3 w-full'>
-                            <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" ><a href='?id=<?php echo $data['id']; ?>' class="text-blue-500"><i class="fas fa-edit"></i></a></button>
+                            <a href="edit.php?id=<?php echo $data['id']; ?>" class="text-blue-500"><i class="fas fa-edit"></i></a>
                             <a href='delete.php?id=<?php echo $data['id']; ?>' onclick='return confirm("Yakin ingin menghapus?")' class="text-red-500"><i class="fas fa-trash"></i></a>
                           </td>
                           </tr>

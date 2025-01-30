@@ -102,13 +102,5 @@ $dataUser = mysqli_fetch_array($resultUser);
   }
   ?>
 
-  <!--
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
--->
-
-
 </body>
 </html>
