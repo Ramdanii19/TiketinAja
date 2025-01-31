@@ -26,8 +26,14 @@ if (isset($_POST['login'])) {
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['id'] = $user['id'];
 
-                // Redirect ke halaman dashboard setelah login
-                header("Location: ../user/landing.php");
+                 // Arahkan berdasarkan peran (role)
+                if ($user['role'] == 'admin') {
+                    // Jika admin, redirect ke landing.php
+                    header("Location: ../user/landing.php");
+                } else {
+                    // Jika user, redirect ke dashboard.php
+                    header("Location: ../user/dashboard.php");
+                }
                 exit();
             } else {
                 $error_message = "Invalid email or password!";
