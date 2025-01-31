@@ -25,14 +25,14 @@ if (isset($_POST['login'])) {
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['id'] = $user['id'];
-
-                 // Arahkan berdasarkan peran (role)
+                
+                 // Arahkan berdasarkan role
                 if ($user['role'] == 'admin') {
-                    // Jika admin, redirect ke landing.php
+                    // Jika admin, redirect ke dashboard.php
+                    header("Location: ../admin/dashboard.php");
+                } else ($user['role'] == 'user') {
+                    // Jika user, redirect ke landing.php
                     header("Location: ../user/landing.php");
-                } else {
-                    // Jika user, redirect ke dashboard.php
-                    header("Location: ../user/dashboard.php");
                 }
                 exit();
             } else {
