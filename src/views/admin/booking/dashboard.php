@@ -269,18 +269,17 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                       $nomor_penerbangan = $_POST["nomor_penerbangan"];
                       $booking_code = $_POST["booking_code"];
 
-                      $editDetail = "SELECT * FROM pesawat WHERE id = $nomor_penerbanga";
+                      $editDetail = "SELECT * FROM pesawat WHERE id = $nomor_penerbangan";
                       $resultDetail = mysqli_query($conn, $editDetail);
                       $dataDetail = mysqli_fetch_array($resultDetail);
                       
-                      $detail_penerbangan = array(
+                      $detail_penerbangan = [
                         "nomor_penerbangan" => htmlspecialchars($dataDetail[1]),
                         "maskapai" => htmlspecialchars($dataDetail[2]),
                         "asal" => htmlspecialchars($dataDetail[3]),
                         "tujuan" => htmlspecialchars($dataDetail[4]),
                         "waktu_keberangkatan" => htmlspecialchars($dataDetail[5]),
-                        "waktu_kedatangan" => htmlspecialchars($dataDetail[6]),
-                      );
+                        "waktu_kedatangan" => htmlspecialchars($dataDetail[6])];
                       $total_price = $_POST["total_price"];
                       $status = $_POST["status"];
                       $detail_penerbangan = json_encode($detail_penerbangan);
