@@ -35,6 +35,7 @@ $dataUser = mysqli_fetch_array($resultUser);
               name="name"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataUser[1]?>"
+              required=""
             />
           </div>
         </div>
@@ -46,6 +47,7 @@ $dataUser = mysqli_fetch_array($resultUser);
               name="email"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataUser[2]?>"
+              required=""
             />
           </div>
         </div>
@@ -57,6 +59,7 @@ $dataUser = mysqli_fetch_array($resultUser);
               name="password"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataUser[3]?>"
+              required=""
             />
           </div>
         </div>

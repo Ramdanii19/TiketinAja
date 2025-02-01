@@ -34,44 +34,47 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 value="<?php echo $dataBookings[0]?>" hidden
               />
-          <label for="name" class="sr-only">Penumpang</label>
-          <div class="relative">
+          <label for="name" class="font-semibold">Penumpang</label>
+          <div class="relative mb-4">
             <select id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
               <?php while ($dataUser = mysqli_fetch_assoc($resultUser)) { ?>
                 <option value="<?php echo $dataUser['id']; ?>"><?php echo $dataUser['name']; ?></option>
               <?php } ?>
             </select>
           </div>
-          <div class="relative">
+          <label for="name" class="font-semibold">Penumpang</label>
+          <div class="relative mb-4">
             <select id="nomor_penerbangan" name="nomor_penerbangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
               <?php while ($dataPesawat = mysqli_fetch_assoc($resultPesawat)) { ?>
                 <option value="<?php echo $dataPesawat['id']; ?>"><?php echo $dataPesawat['nomor_penerbangan']; ?></option>
               <?php } ?>
             </select>
           </div>
-          <label for="booking_code" class="sr-only">Booking Code</label>
+          <label for="booking_code" class="font-semibold">Booking Code</label>
           <div class="relative">
             <input
               type="text"
               name="booking_code"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataBookings[3]?>"
+              required=""
             />
           </div>
         </div>
         <div>
-          <label for="total_price" class="sr-only">Total Price</label>
+          <label for="total_price" class="font-semibold">Total Price</label>
           <div class="relative">
             <input
               type="text"
               name="total_price"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataBookings[5]?>"
+              required=""
             />
           </div>
         </div>
         <div>
-          <label for="passport" class="sr-only">Status</label>
+          <label for="passport" class="font-semibold">Status</label>
           <div class="relative">
           <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                 <option value="<?php echo $dataBookings[6]?>"><?php echo $dataBookings[6]?></option>

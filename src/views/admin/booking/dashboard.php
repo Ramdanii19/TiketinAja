@@ -231,7 +231,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                             <div class="col-span-2">
                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
                                 <select id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected="">Select Status</option>
+                                    <option selected="">Pilih Penumpang</option>
                                     <?php while ($dataUser = mysqli_fetch_assoc($resultUser)) { ?>
                                         <option value="<?php echo $dataUser['id']; ?>"><?php echo $dataUser['name']; ?></option>
                                     <?php } ?>
@@ -240,7 +240,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                             <div class="col-span-2">
                                 <label for="nomor_penerbangan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Penerbangan</label>
                                 <select id="nomor_penerbangan" name="nomor_penerbangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected="">Select Status</option>
+                                    <option selected="">Nomor Penerbangan</option>
                                     <?php while ($dataPesawat = mysqli_fetch_assoc($resultPesawat)) { ?>
                                         <option value="<?php echo $dataPesawat['id']; ?>"><?php echo $dataPesawat['nomor_penerbangan']; ?></option>
                                     <?php } ?>
@@ -248,11 +248,11 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                             </div>
                             <div class="col-span-2">
                                 <label for="booking_code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Booking Code</label>
-                                <input type="text" name="booking_code" id="booking_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="********" required="">
+                                <input type="text" name="booking_code" id="booking_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="MD_123" required="">
                             </div>
                             <div class="col-span-2">
                                 <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Price</label>
-                                <input type="number" name="total_price" id="total_price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="********" required="">
+                                <input type="number" name="total_price" id="total_price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="4500000" required="">
                             </div>
                             <div class="col-span-2">
                                 <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
@@ -266,7 +266,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                         </div>
                         <button type="submit" name="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                            Add new Booking
+                            Tambah Data
                         </button>
                     </form>
                     <?php

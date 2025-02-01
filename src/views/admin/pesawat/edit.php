@@ -37,6 +37,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="nomor"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[1]?>"
+              required=""
             />
           </div>
         </div>
@@ -48,6 +49,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="maskapai"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[2]?>"
+              required=""
             />
           </div>
         </div>
@@ -59,6 +61,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="asal"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[3]?>"
+              required=""
             />
           </div>
         </div>
@@ -70,6 +73,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="tujuan"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[4]?>"
+              required=""
             />
           </div>
         </div>
@@ -81,6 +85,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="keberangkatan"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[5]?>"
+              required=""
             />
           </div>
         </div>
@@ -92,6 +97,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="kedatangan"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[6]?>"
+              required=""
             />
           </div>
         </div>
@@ -103,6 +109,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="price"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[7]?>"
+              required=""
             />
           </div>
         </div>
@@ -114,6 +121,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
               name="kursi"
               class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               value="<?php echo $dataPesawat[8]?>"
+              required=""
             />
           </div>
         </div>
