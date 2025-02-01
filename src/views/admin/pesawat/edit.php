@@ -21,7 +21,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
   <?php if(!isset($_POST['submit'])) {?>
   <div class="mx-auto w-1/2 px-4 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-lg">
-      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Edit Data User</h1>
+      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Edit Data Pesawat</h1>
       <form method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
         <div>
           <input
@@ -30,7 +30,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 value="<?php echo $dataPesawat[0]?>" hidden
               />
-          <label for="nomor" class="sr-only">Nomor Penerbangan</label>
+          <label for="nomor" class="font-semibold">Nomor Penerbangan</label>
           <div class="relative">
             <input
               type="text"
@@ -41,7 +41,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="maskapai" class="sr-only">Maskapai</label>
+          <label for="maskapai" class="font-semibold">Maskapai</label>
           <div class="relative">
             <input
               type="text"
@@ -52,7 +52,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="asal" class="sr-only">Asal</label>
+          <label for="asal" class="font-semibold">Asal</label>
           <div class="relative">
             <input
               type="text"
@@ -63,7 +63,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="tujuan" class="sr-only">Tujuan</label>
+          <label for="tujuan" class="font-semibold">Tujuan</label>
           <div class="relative">
             <input
               type="text"
@@ -74,7 +74,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="keberangakatan" class="sr-only">Keberangkatan</label>
+          <label for="keberangakatan" class="font-semibold">Keberangkatan</label>
           <div class="relative">
             <input
               type="datetime-local"
@@ -85,7 +85,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="kedatangan" class="sr-only">Kedatangan</label>
+          <label for="kedatangan" class="font-semibold">Kedatangan</label>
           <div class="relative">
             <input
               type="datetime-local"
@@ -96,7 +96,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="price" class="sr-only">Price</label>
+          <label for="price" class="font-semibold">Price</label>
           <div class="relative">
             <input
               type="number"
@@ -107,7 +107,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="kursi" class="sr-only">Kursi</label>
+          <label for="kursi" class="font-semibold">Kursi</label>
           <div class="relative">
             <input
               type="number"
@@ -118,7 +118,7 @@ $jsonPesawat = json_decode($dataPesawat[9], true);
           </div>
         </div>
         <div>
-          <label for="operasional" class="sr-only">Operasional</label>
+          <label for="operasional" class="font-semibold">Operasional</label>
           <div class="relative">
             <input
               type="text"
