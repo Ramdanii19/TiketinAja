@@ -26,14 +26,15 @@ if (isset($_POST['login'])) {
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['id'] = $user['id'];
                 
-                 // Arahkan berdasarkan role
                 if ($user['role'] == 'admin') {
-                    // Jika admin, redirect ke dashboard.php
                     header("Location: ../admin/dashboard.php");
-                } else ($user['role'] == 'user') {
-                    // Jika user, redirect ke landing.php
+                } else {
                     header("Location: ../user/landing.php");
                 }
+                // } else ($user['role'] == 'user') {
+                //     // Jika user, redirect ke landing.php
+                //     header("Location: ../user/landing.php");
+                // }
                 exit();
             } else {
                 $error_message = "Invalid email or password!";
