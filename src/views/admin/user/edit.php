@@ -67,7 +67,7 @@ $dataUser = mysqli_fetch_array($resultUser);
                 <option value="<?php echo $dataUser[4]?>"><?php echo $dataUser[4]?></option>
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
-            </select>
+          </select>
         </div>
 
         <button
