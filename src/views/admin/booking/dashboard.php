@@ -89,7 +89,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
           </li>
 
           <li>
-            <a href="logout.php" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-900 dark:hover:text-neutral-300">
+            <a href="../../Auth/login.php" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-900 dark:hover:text-neutral-300">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
               <path d="M10 3H5v18h5v2H3V1h7v2Zm11 9-4-4v3H9v2h8v3l4-4Z"/>
             </svg>
@@ -103,7 +103,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
     <div class="flex flex-col w-full">
       <!-- Konten -->
       <div class="flex flex-col py-10 px-8">
-        <p class="font-bold text-2xl text-blue-500">Dashboard</p>
+        <p class="font-bold text-2xl text-blue-500">Data Booking</p>
         
         <!-- Modal toggle -->
         <div class="flex justify-end">
@@ -240,7 +240,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                             <div class="col-span-2">
                                 <label for="nomor_penerbangan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Penerbangan</label>
                                 <select id="nomor_penerbangan" name="nomor_penerbangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected="">Nomor Penerbangan</option>
+                                    <option selected="">Pilih Nomor Penerbangan</option>
                                     <?php while ($dataPesawat = mysqli_fetch_assoc($resultPesawat)) { ?>
                                         <option value="<?php echo $dataPesawat['id']; ?>"><?php echo $dataPesawat['nomor_penerbangan']; ?></option>
                                     <?php } ?>
@@ -257,7 +257,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
                             <div class="col-span-2">
                                 <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                                 <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected="">Select Status</option>
+                                    <option selected="">Pilih Status</option>
                                     <option value="pending">Pending</option>
                                     <option value="confirmed">Confirmed</option>
                                     <option value="canceled">Canceled</option>

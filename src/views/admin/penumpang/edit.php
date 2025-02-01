@@ -32,15 +32,15 @@ $resultBookings = mysqli_query($conn, $queryBookings);
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 value="<?php echo $dataPenumpang[0]?>" hidden
               />
-          <label for="kode_booking" class="sr-only">Booking Kode</label>
-          <div class="relative">
+          <label for="kode_booking" class="font-semibold">Booking Kode</label>
+          <div class="relative mb-4">
             <select id="kode_booking" name="kode_booking" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
               <?php while ($dataBookings = mysqli_fetch_assoc($resultBookings)) { ?>
                 <option value="<?php echo $dataBookings['id']; ?>"><?php echo $dataBookings['booking_code']; ?></option>
               <?php } ?>
             </select>
           </div>
-          <label for="name" class="sr-only">Nama</label>
+          <label for="name" class="font-semibold">Nama</label>
           <div class="relative">
             <input
               type="text"
@@ -51,7 +51,7 @@ $resultBookings = mysqli_query($conn, $queryBookings);
           </div>
         </div>
         <div>
-          <label for="umur" class="sr-only">Age</label>
+          <label for="umur" class="font-semibold">Age</label>
           <div class="relative">
             <input
               type="number"
@@ -62,7 +62,7 @@ $resultBookings = mysqli_query($conn, $queryBookings);
           </div>
         </div>
         <div>
-          <label for="passport" class="sr-only">Kode Passport</label>
+          <label for="passport" class="font-semibold">Kode Passport</label>
           <div class="relative">
             <input
               type="text"
