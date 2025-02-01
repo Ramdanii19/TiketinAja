@@ -53,7 +53,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
           </li>
 
           <li>
-            <a href="./dashboard.php" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-900 dark:hover:text-neutral-300">
+            <a href="../user/dashboard.php" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-500 hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-900 dark:hover:text-neutral-300">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
               <path fill-rule="evenodd" d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2ZM3 20a8.97 8.97 0 0 1 9-9 8.97 8.97 0 0 1 9 9H3Z" clip-rule="evenodd"/>
             </svg>

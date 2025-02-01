@@ -86,12 +86,12 @@ $count = mysqli_num_rows($result);
     <div class="flex flex-col w-full">
       <!-- Konten -->
       <div class="flex flex-col py-10 px-8">
-        <p class="font-bold text-2xl text-blue-500">User</p>
+        <p class="font-bold text-2xl text-blue-500">Data User</p>
         
         <!-- Modal toggle -->
         <div class="flex justify-end">
           <button data-modal-target="create-modal" data-modal-toggle="create-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            Tambah User
+            Tambah Data User
           </button>
         </div>
 

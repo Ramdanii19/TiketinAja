@@ -28,7 +28,7 @@ $dataUser = mysqli_fetch_array($resultUser);
                 class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 value="<?php echo $dataUser[0]?>" hidden
               />
-          <label for="name" class="sr-only">Nama</label>
+          <label for="name" class="font-semibold">Nama</label>
           <div class="relative">
             <input
               type="text"
@@ -39,7 +39,7 @@ $dataUser = mysqli_fetch_array($resultUser);
           </div>
         </div>
         <div>
-          <label for="email" class="sr-only">Email</label>
+          <label for="email" class="font-semibold">Email</label>
           <div class="relative">
             <input
               type="email"
@@ -50,7 +50,7 @@ $dataUser = mysqli_fetch_array($resultUser);
           </div>
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
+          <label for="password" class="font-semibold">Password</label>
           <div class="relative">
             <input
               type="password"
@@ -61,7 +61,7 @@ $dataUser = mysqli_fetch_array($resultUser);
           </div>
         </div>
         <div>
-          <label for="role" class="sr-only">Role</label>
+          <label for="role" class="font-semibold">Role</label>
           <div class="relative">
           <select id="role" name="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                 <option value="<?php echo $dataUser[4]?>"><?php echo $dataUser[4]?></option>
