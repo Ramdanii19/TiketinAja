@@ -11,6 +11,21 @@ $editBookings = "SELECT * FROM bookings WHERE id = '$getId'";
 $resultBookings = mysqli_query($conn, $editBookings);
 $dataBookings = mysqli_fetch_array($resultBookings);
 
+$queryuser = "SELECT  
+  bookings.id,
+  user.name AS user_name,
+  pesawat.nomor_penerbangan,
+  bookings.detail_penerbangan,
+  bookings.booking_code,
+  bookings.total_price,
+  bookings.status
+FROM `bookings`
+JOIN user ON bookings.user_id = user.id
+JOIN pesawat ON bookings.pesawat_id = pesawat.id
+WHERE bookings.id = '$getId';";
+$result = mysqli_query($conn, $queryuser);
+$datauser = mysqli_fetch_array($result);
+
 $queryUser = "SELECT id, name FROM user";
 $resultUser = mysqli_query($conn, $queryUser);
 
@@ -43,14 +58,16 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
             <label for="name" class="font-semibold">Penumpang</label>
             <div class="relative mb-4">
               <select id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <option value="<?php echo $dataBookings[1] ?>"><?php echo $datauser[1] ?></option>
                 <?php while ($dataUser = mysqli_fetch_assoc($resultUser)) { ?>
                   <option value="<?php echo $dataUser['id']; ?>"><?php echo $dataUser['name']; ?></option>
                 <?php } ?>
               </select>
             </div>
-            <label for="name" class="font-semibold">Penumpang</label>
+            <label for="name" class="font-semibold">Nomor Penerbangan</label>
             <div class="relative mb-4">
               <select id="nomor_penerbangan" name="nomor_penerbangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <option value="<?php echo $dataBookings[2] ?>"><?php echo $datauser[2] ?></option>
                 <?php while ($dataPesawat = mysqli_fetch_assoc($resultPesawat)) { ?>
                   <option value="<?php echo $dataPesawat['id']; ?>"><?php echo $dataPesawat['nomor_penerbangan']; ?></option>
                 <?php } ?>
