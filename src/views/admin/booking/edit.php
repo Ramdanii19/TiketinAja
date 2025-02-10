@@ -58,7 +58,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
             <label for="name" class="font-semibold">Penumpang</label>
             <div class="relative mb-4">
               <select id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                <option value="<?php echo $dataBookings[1] ?>"><?php echo $datauser[1] ?></option>
+                <option hidden value="<?php echo $dataBookings[1] ?>"><?php echo $datauser[1] ?></option>
                 <?php while ($dataUser = mysqli_fetch_assoc($resultUser)) { ?>
                   <option value="<?php echo $dataUser['id']; ?>"><?php echo $dataUser['name']; ?></option>
                 <?php } ?>
@@ -67,7 +67,7 @@ $resultPesawat = mysqli_query($conn, $queryPesawat);
             <label for="name" class="font-semibold">Nomor Penerbangan</label>
             <div class="relative mb-4">
               <select id="nomor_penerbangan" name="nomor_penerbangan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                <option value="<?php echo $dataBookings[2] ?>"><?php echo $datauser[2] ?></option>
+                <option hidden value="<?php echo $dataBookings[2] ?>"><?php echo $datauser[2] ?></option>
                 <?php while ($dataPesawat = mysqli_fetch_assoc($resultPesawat)) { ?>
                   <option value="<?php echo $dataPesawat['id']; ?>"><?php echo $dataPesawat['nomor_penerbangan']; ?></option>
                 <?php } ?>

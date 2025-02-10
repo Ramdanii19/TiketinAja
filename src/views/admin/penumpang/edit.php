@@ -11,6 +11,17 @@ $editPenumpang = "SELECT * FROM penumpang WHERE id = '$getId'";
 $resultPenumpang = mysqli_query($conn, $editPenumpang);
 $dataPenumpang = mysqli_fetch_array($resultPenumpang);
 
+$query = "SELECT 
+  penumpang.id,
+  bookings.booking_code,
+  penumpang.name,
+  penumpang.age,
+  penumpang.passport_number
+FROM penumpang
+JOIN bookings ON penumpang.booking_id = bookings.id
+WHERE penumpang.id = '$getId';";
+$result = mysqli_query($conn, $query);
+$data = mysqli_fetch_array($result);
 
 $queryBookings = "SELECT id, booking_code FROM bookings";
 $resultBookings = mysqli_query($conn, $queryBookings);
@@ -41,6 +52,7 @@ $resultBookings = mysqli_query($conn, $queryBookings);
             <label for="kode_booking" class="font-semibold">Booking Kode</label>
             <div class="relative mb-4">
               <select id="kode_booking" name="kode_booking" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <option hidden value="<?php echo $dataPenumpang[1] ?>"><?php echo $data[1] ?></option>
                 <?php while ($dataBookings = mysqli_fetch_assoc($resultBookings)) { ?>
                   <option value="<?php echo $dataBookings['id']; ?>"><?php echo $dataBookings['booking_code']; ?></option>
                 <?php } ?>
