@@ -1,15 +1,19 @@
 <?php
 include "../../../config/koneksi.php";
+session_start();
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+  header("Location: ../../Auth/login.php");
+  exit;
+}
 
 $id = $_GET['id'];
-  $delPenumpang = "DELETE FROM penumpang WHERE id='$id'";
-  $resultPenumpang = mysqli_query($conn, $delPenumpang);
+$delPenumpang = "DELETE FROM penumpang WHERE id='$id'";
+$resultPenumpang = mysqli_query($conn, $delPenumpang);
 
-  if ($resultPenumpang) {
-      echo "<script>alert('Daftar Berhasil Dihapus!');</script>";
-      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
-  } else {
-      echo "<script>alert('Daftar Gagal Dihapus!');</script>";
-      echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
-  }
-?>
+if ($resultPenumpang) {
+  echo "<script>alert('Daftar Berhasil Dihapus!');</script>";
+  echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
+} else {
+  echo "<script>alert('Daftar Gagal Dihapus!');</script>";
+  echo "<script type='text/javascript'>window.location = 'dashboard.php'</script>";
+}
