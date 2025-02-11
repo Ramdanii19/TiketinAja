@@ -76,6 +76,7 @@ while ($dataPesanan = mysqli_fetch_array($resultListPesanan, MYSQLI_ASSOC)) {
             </div>
         </div>
     </section>
+    <?php include "./footer.php" ?>
 </body>
 
 </html>
