@@ -16,19 +16,19 @@
             <div class="flex justify-center gap-4 flex-wrap"> <!-- Menggunakan gap-4 untuk jarak antar profil -->
                 <!-- Profile 1 -->
                 <div class="profile text-center bg-white p-6 rounded-lg shadow-lg w-64 min-w-0">
-                    <img src="ramdani.jpg" alt="Foto Orang 1" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <img src="../../assets/img/ramdani.jpg" alt="Foto Orang 1" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <div class="name text-xl font-medium mb-2">Muhamad Ramdani</div>
                     <div class="jobdesk text-gray-500">Mengelola dan menangani aspek Administratif</div>
                 </div>
                 <!-- Profile 2 -->
                 <div class="profile text-center bg-white p-6 rounded-lg shadow-lg w-64 min-w-0">
-                    <img src="rafi.jpg" alt="Foto Orang 2" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <img src="../../assets/img/rafi.jpg" alt="Foto Orang 2" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <div class="name text-xl font-medium mb-2">Muhammad Raffi</div>
                     <div class="jobdesk text-gray-500">Mengelola dan menangani bagian terkait User</div>
                 </div>
                 <!-- Profile 3 -->
                 <div class="profile text-center bg-white p-6 rounded-lg shadow-lg w-64 min-w-0">
-                    <img src="hafidh.jpg" alt="Foto Orang 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <img src="../../assets/img/hafidh.jpg" alt="Foto Orang 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <div class="name text-xl font-medium mb-2">Hafidh Adrito Perbawa</div>
                     <div class="jobdesk text-gray-500">Mengelola dan menangani aspek Autentikasi</div>
                 </div>
