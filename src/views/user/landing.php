@@ -116,6 +116,7 @@ if (!isset($_POST['submit'])) {
                 </div>
             </section>
         </main>
+        <?php include "./footer.php" ?>
     </body>
 
     </html>
