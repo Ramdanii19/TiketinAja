@@ -282,6 +282,7 @@ $count = mysqli_num_rows($result);
   </script>
 
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+  <?php include "../footer.php"?>
 </body>
 
 </html>
