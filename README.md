@@ -54,8 +54,3 @@ To set up the project locally, follow these steps:
 4. **Manage Bookings**: View or cancel reservations from your dashboard.
 
 *Happy booking with TiketinAja!*
-
-
-
-https://github.com/user-attachments/assets/3c59f990-69ad-455a-9236-e8385c7d7652
-
